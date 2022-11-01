@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { HomeUi } from '../components'
 
 
 export default function Home() {
@@ -11,10 +12,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>
-          African market
-          glpat-4Hp6_6VrcaALxNM_zXCF
-     </h1>
+      <HomeUi/> 
       </main>
 
      
