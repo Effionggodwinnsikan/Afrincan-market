@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import { HomeUi } from '../components'
 
+import RootLayout from "../layout/RootLayout";
 
 export default function Home() {
   return (
-    <div >
+    <div>
       <Head>
         <title>African market</title>
         <meta name="description" content="the african market web app" />
@@ -12,10 +12,14 @@ export default function Home() {
       </Head>
 
       <main>
-      <HomeUi/> 
+        <h1>
+          African market
+          glpat-4Hp6_6VrcaALxNM_zXCF
+     </h1>
       </main>
-
-     
     </div>
-  )
+  );
 }
+Home.getLayout = function getLayout(page: ReactNode) {
+  return <RootLayout>{page}</RootLayout>;
+};
