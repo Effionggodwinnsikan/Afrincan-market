@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="bg-yellow-300">African market</h1>
+        <h1 className="bg-yellow-300 font-semibold text-2xl">African market</h1>
       </main>
     </div>
   );
