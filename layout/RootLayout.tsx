@@ -1,12 +1,15 @@
 import React, { ReactNode } from "react";
-import { Header } from "../components";
+// import Footer from "../components/Footer";
+// import Header from "../components/Header";
+
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <>
+    <div>
       <Header />
-      {children}
-    </>
+      <main>{children}</main>
+      <Footer />
+    </div>
   );
 };
 
