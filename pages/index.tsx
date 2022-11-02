@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import Head from 'next/head'
 
 
@@ -11,9 +12,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>
+        <h1 className='bg-yellow-300'>
           African market
-          glpat-4Hp6_6VrcaALxNM_zXCF
+      
+       
      </h1>
       </main>
 
