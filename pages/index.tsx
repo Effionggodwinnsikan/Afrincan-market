@@ -1,10 +1,11 @@
-import { Button } from '@mui/material'
-import Head from 'next/head'
+import React, { ReactNode } from "react";
 
+import Head from "next/head";
+import RootLayout from "../layout/RootLayout";
 
 export default function Home() {
   return (
-    <div >
+    <div>
       <Head>
         <title>African market</title>
         <meta name="description" content="the african market web app" />
@@ -12,14 +13,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className='bg-yellow-300'>
-          African market
-      
-       
-     </h1>
+        <h1 className="bg-yellow-300">African market</h1>
       </main>
-
-     
     </div>
-  )
+  );
 }
+Home.getLayout = function getLayout(page: ReactNode) {
+  return <RootLayout>{page}</RootLayout>;
+};
