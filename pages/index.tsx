@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 
 import Head from "next/head";
 import RootLayout from "../layout/RootLayout";
+import { Button } from "@mui/material";
 
 export default function Home() {
   return (
@@ -12,8 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="mb-[300px]">
         <h1 className="bg-yellow-300 font-semibold text-2xl">African market</h1>
+        <Button>this is a</Button>
       </main>
     </div>
   );
