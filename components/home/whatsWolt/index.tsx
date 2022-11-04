@@ -2,7 +2,7 @@ import React from "react";
 
 export const WhatsWolt = () => {
   return (
-    <section className="flex flex-col bg-no-repeat bg-whatswolt bg-whatswoltsiz bg-whatswoltPos px-4  md:py-24 md:px-10 pb-20xl:px-0 min-h-screen">
+    <section className="flex flex-col bg-no-repeat bg-whatswolt bg-whatswoltsiz bg-whatswoltPos px-4  md:py-24 md:px-10 pb-20 xl:px-0 min-h-screen">
       <div className="flex flex-col bg-white h-full w-full  max-w-6.5xl m-auto my-0 gap-10 mt-24  lg:flex-row shadow-homewhats min-h-homewhats">
         {/* text container */}
         <div className=" flex flex-col text-left justify-center lg:pt-20 lg:pr-24 lg:pb-9 lg:pl-28 font-semibold lg:w-3/6">
