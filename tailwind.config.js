@@ -5,6 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layout/**/*.{js,ts,jsx,tsx}",
   ],
+  important:true,
   theme: {
     extend: {
       fontFamily: {

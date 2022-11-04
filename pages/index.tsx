@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { HomeUi } from '../components';
 
 import RootLayout from "../layout/RootLayout";
+import { Button } from "@mui/material";
 
 export default function Home() {
   return (
@@ -14,11 +15,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <HomeUi/>
-        {/* <h1>
-          African market
-          glpat-4Hp6_6VrcaALxNM_zXCF
-     </h1> */}
+       <HomeUi/>
       </main>
     </div>
   );
