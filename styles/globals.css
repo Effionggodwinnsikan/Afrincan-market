@@ -90,9 +90,7 @@
   }
 
   .hero {
- 
     background-repeat: no-repeat;
-
   }
 
   .search__input {
@@ -110,9 +108,9 @@
   .search__input:focus {
     border: 2px solid #1fa9e4;
   }
-  .search__input:focus{
+  .search__input:focus {
     border-color: #1fa9e4;
-    box-shadow: rgba(0, 157, 224) 0px 0px 0px .0625rem ;
+    box-shadow: rgba(0, 157, 224) 0px 0px 0px 0.0625rem;
   }
 
   .search__input:focus + .search__label {
@@ -129,6 +127,20 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  .download-img {
+    position: absolute;
+    z-index: 1;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 100%;
+    right: 0;
+  }
+
+  .download-textContainer {
+    max-width: 40%;
+    width:100%;
   }
 }
 
