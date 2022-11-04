@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React, { ReactNode } from "react";
+import { HomeUi } from '../components';
 
 import RootLayout from "../layout/RootLayout";
 
@@ -13,10 +14,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>
+        <HomeUi/>
+        {/* <h1>
           African market
           glpat-4Hp6_6VrcaALxNM_zXCF
-     </h1>
+     </h1> */}
       </main>
     </div>
   );
