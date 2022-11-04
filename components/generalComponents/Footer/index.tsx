@@ -22,7 +22,7 @@ const Footer = () => {
               if (matches) {
                 return (
                   <div className="" key={index}>
-                    <h2 className="text-gray-300 text-sm md:text-base mb-7 capitalize font-semibold">
+                    <h2 className="text-white text-sm md:text-base mb-7 capitalize font-semibold">
                       {name}
                     </h2>
                     <div className="flex-col flex gap-3">
