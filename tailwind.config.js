@@ -19,12 +19,27 @@ module.exports = {
       },
       backgroundImage: {
         "hero-pattern": "url('/assets/images/2_Tuesday.jpg')",
-        // "footer-texture": "url('/img/footer-texture.png')",
+        whatswolt:
+          "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(248, 248, 248), rgb(248, 248, 248))",
+        whatswoltbg:
+          "url('https://cdn.wolt.com/frontpage-assets/video-cover-image-4.jpg')",
+      },
+      backgroundPosition: {
+        whatswoltPos: "0px 0px, 0px 50%",
+      },
+      backgroundSize: {
+        whatswoltsiz: "100% 50%, 100%, 50%",
+      },
+      boxShadow: {
+        homewhats: "rgb(32 33 37 / 6%) 0px 0px 54px 0px",
       },
 
       maxWidth: {
         "6.5xl": "1200px",
       },
+      minHeight: {
+        "homewhats": "45.625rem"
+      }
     },
   },
   plugins: [],

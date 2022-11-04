@@ -5,7 +5,8 @@ import {CountryList} from './CountryList'
 
 export const Countries = () => {
   return (
-    <section className="flex flex-col px-4 py-10 md:py-24 md:px-10 xl:px-0 min-h-screen max-w-6.5xl justify-center m-auto my-0 gap-10">
+      <section className="flex flex-col px-4 py-10 md:py-24 md:px-10 xl:px-0 min-h-screen max-w-6.5xl justify-center m-auto my-0 gap-10">
+          
       <h1 className="text-2xl md:text-5xl font-bold">
         Explore countries where you find Wolt
       </h1>
