@@ -2,7 +2,7 @@ import React from "react";
 
 export const Hero = () => {
   return (
-    <section className="bg-herogreen flex min-h-screen  w-ful px-4  lg:px-28 xl:px-0 overflow-hidden">
+    <section className="bg-herogreen flex min-h-screen  w-ful px-4  md:px-10 xl:px-0 overflow-hidden">
       {/*Content  Container */}
 
       <div className="flex w-full min-h-full max-w-6.5xl items-center m-auto my-0    relative">
@@ -20,7 +20,7 @@ export const Hero = () => {
 
           {/* Search Form  */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-white md:etext-maintxt text-xl font-semibold">
+            <h3 className="text-white md:text-maintxt text-xl font-semibold">
               Delivery address
             </h3>
             <div className="flex gap-4">

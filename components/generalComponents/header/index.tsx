@@ -4,7 +4,7 @@ import { Button } from "../buttons";
 
 export const Header = () => {
   return (
-    <header className="flex  justify-center  px-4 py-3 lg:px-28 xl:px-0">
+    <header className="flex  justify-center  px-4 py-3 md:px-10 xl:px-0">
       <div className="flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0">
         <Link href={"/"}>
           <p className="text-black font-bold text-xl italic">Wolt</p>
