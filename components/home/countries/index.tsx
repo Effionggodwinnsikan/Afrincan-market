@@ -1,7 +1,7 @@
 import {  Grid } from "@mui/material";
 import { CountryCard } from "./CountryStyles";
 import React from "react";
-import {CountryList} from './CountryList'
+import {CountryList} from '../../../data/CountryList'
 
 export const Countries = () => {
   return (
