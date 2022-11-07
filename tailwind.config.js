@@ -5,7 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layout/**/*.{js,ts,jsx,tsx}",
   ],
-  important:true,
+  important: true,
   theme: {
     extend: {
       fontFamily: {
@@ -40,8 +40,11 @@ module.exports = {
         "6.5xl": "1200px",
       },
       minHeight: {
-        "homewhats": "45.625rem"
-      }
+        homewhats: "45.625rem",
+      },
+      right: {
+        "800": "800px",
+      },
     },
   },
   plugins: [],

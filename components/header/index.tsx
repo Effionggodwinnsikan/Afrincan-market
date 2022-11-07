@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Button } from "../buttons";
+import { Button } from "../generalComponents";
 
 export const Header = () => {
   return (
@@ -13,7 +13,7 @@ export const Header = () => {
         {/* MOBILE MENU */}
 
         {/* BUTTONS */}
-        <div className="hidden md:flex gap-4 items-center">
+        <div className="hidden lg:flex gap-4 items-center">
           <Button nobg>Log in</Button>
           <Button bluebg>Sign up</Button>
         </div>

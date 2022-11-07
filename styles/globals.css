@@ -97,7 +97,6 @@
     line-height: 1.5rem;
     border: none;
     outline: none;
-    /* z-index: 1; */
     padding: 0.75rem 0.875rem;
     padding-inline-start: 3.125rem;
     border: 2px solid rgba(32, 33, 37, 0.12);
@@ -105,17 +104,18 @@
     transition: border 0.2s linear 0s;
   }
 
-  .search__input:focus {
-    border: 2px solid #1fa9e4;
-  }
+
   .search__input:focus {
     border-color: #1fa9e4;
     box-shadow: rgba(0, 157, 224) 0px 0px 0px 0.0625rem;
+        padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
   }
 
   .search__input:focus + .search__label {
     transform: translateY(-0.6875rem) scale(0.75);
   }
+
   .search__label {
     top: 0.875rem;
     width: auto;
