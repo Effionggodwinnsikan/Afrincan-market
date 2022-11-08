@@ -2,7 +2,7 @@ import React from 'react'
 
 export const DownloadSection = () => {
   return (
-    <section className="flex items-center min-h-screen bg-secondarybg w-full px-4  md:px-10 xl:px-0 overflow-hidden relative ">
+    <section className="flex items-center min-h-screen bg-secondarybg w-full pt-10 px-4  md:px-10 xl:px-0 mb-20 overflow-hidden relative ">
       <div className="flex flex-col items-center h-full  w-full min-h-full max-w-6.5xl  m-auto my-0 md:flex-row">
         {/* Left text */}
         <div className="flex flex-col gap-10 z-2 download-textContainer">

@@ -142,6 +142,31 @@
     max-width: 40%;
     width:100%;
   }
+
+
+
+  .partner__text {
+    min-height: 180px;
+  }
+
+  .partner__link::after {
+content: '';
+width: 100%;
+bottom: -0.5rem;
+height: 1px;
+background-color: #1fa9e4;
+position: absolute;
+left: 0;
+transition: width .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .partner__link:hover.partner__link::after {
+    width: 0;
+transition: width .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    /* height: 0; */
+  }
+
 }
 
 

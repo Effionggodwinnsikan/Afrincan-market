@@ -4,6 +4,7 @@ import { Countries } from "./countries";
 import { WhatsWolt } from "./whatsWolt";
 import { DidYouKnow } from "./DidYouKnow";
 import { DownloadSection } from "./download";
+import { Partner } from "./partner";
 
 export const HomeUi = () => {
   return (
@@ -12,9 +13,10 @@ export const HomeUi = () => {
       <Countries/>
       <WhatsWolt />
       <DidYouKnow />
-      <DownloadSection/>
+      <DownloadSection />
+      <Partner/>
      
-      {/* <h1>African market glpat-4Hp6_6VrcaALxNM_zXCF</h1> */}
+      
     </>
   );
 };

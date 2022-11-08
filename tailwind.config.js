@@ -31,6 +31,8 @@ module.exports = {
       },
       backgroundSize: {
         whatswoltsiz: "100% 50%, 100%, 50%",
+        homPartmob: "50%, 50%",
+        homPartDesk: "50%, 0",
       },
       boxShadow: {
         homewhats: "rgb(32 33 37 / 6%) 0px 0px 54px 0px",

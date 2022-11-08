@@ -11,6 +11,7 @@ export const Countries = () => {
       <h1 className="text-2xl md:text-5xl font-bold">
         Explore countries where you find Wolt
       </h1>
+      
       {/* Country list */}
       <Grid container spacing={3}>
         {CountryList.map((country, id) => {
