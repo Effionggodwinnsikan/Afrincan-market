@@ -28,6 +28,7 @@ module.exports = {
       },
       backgroundPosition: {
         whatswoltPos: "0px 0px, 0px 50%",
+        mobWhats: "50% 0",
       },
       backgroundSize: {
         whatswoltsiz: "100% 50%, 100%, 50%",

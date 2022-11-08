@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Button } from "../generalComponents";
+import { Button } from "..";
 
 export const Header = () => {
   return (

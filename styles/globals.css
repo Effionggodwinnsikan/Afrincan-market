@@ -204,7 +204,16 @@ transition: width .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     /* height: 0; */
   }
+.whatswolt__content {
+  background-position: 50% 0;
+background-repeat: no-repeat;
+}
 
+@media screen and (min-width:1024px) {
+  .whatswolt__content {
+    background-image: none;
+  }
+}
 }
 
 
