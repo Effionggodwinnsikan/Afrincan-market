@@ -97,7 +97,6 @@
     line-height: 1.5rem;
     border: none;
     outline: none;
-    /* z-index: 1; */
     padding: 0.75rem 0.875rem;
     padding-inline-start: 3.125rem;
     border: 2px solid rgba(32, 33, 37, 0.12);
@@ -141,6 +140,45 @@
   .download-textContainer {
     max-width: 40%;
     width:100%;
+  }
+
+
+  /* TEXT Input Field */
+
+  .textfield__input {
+    line-height: 1.5rem;
+    border: none;
+    outline: none;
+    padding: 0.75rem 0.875rem;
+    padding-inline-start:  0.875rem;
+    border: 2px solid rgba(32, 33, 37, 0.12);
+    border-radius: 0.5rem;
+    transition: border 0.2s linear 0s;
+  }
+
+  .textfield__input:focus {
+    border: 2px solid #1fa9e4;
+  }
+  .textfield__input:focus {
+    border-color: #1fa9e4;
+    box-shadow: rgba(0, 157, 224) 0px 0px 0px 0.0625rem;
+  }
+
+   .textfield__label {
+    top: 0.875rem;
+    width: auto;
+    left: 0.875rem;
+    right: 0.875rem;
+    transition: transform 0.15s ease-in-out 0s;
+    transform-origin: left center;
+    pointer-events: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .textfield__input:focus + .textfield__label {
+    transform: translateY(-0.6875rem) scale(0.75);
   }
 }
 
