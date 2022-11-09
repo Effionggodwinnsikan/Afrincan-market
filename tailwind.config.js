@@ -5,7 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layout/**/*.{js,ts,jsx,tsx}",
   ],
-  important:true,
+  important: true,
   theme: {
     extend: {
       fontFamily: {
@@ -28,9 +28,12 @@ module.exports = {
       },
       backgroundPosition: {
         whatswoltPos: "0px 0px, 0px 50%",
+        mobWhats: "50% 0",
       },
       backgroundSize: {
         whatswoltsiz: "100% 50%, 100%, 50%",
+        homPartmob: "50%, 50%",
+        homPartDesk: "50%, 0",
       },
       boxShadow: {
         homewhats: "rgb(32 33 37 / 6%) 0px 0px 54px 0px",
@@ -40,8 +43,11 @@ module.exports = {
         "6.5xl": "1200px",
       },
       minHeight: {
-        "homewhats": "45.625rem"
-      }
+        homewhats: "45.625rem",
+      },
+      right: {
+        "800": "800px",
+      },
     },
   },
   plugins: [],
