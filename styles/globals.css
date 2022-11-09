@@ -97,7 +97,6 @@
     line-height: 1.5rem;
     border: none;
     outline: none;
-    /* z-index: 1; */
     padding: 0.75rem 0.875rem;
     padding-inline-start: 3.125rem;
     border: 2px solid rgba(32, 33, 37, 0.12);
@@ -105,17 +104,18 @@
     transition: border 0.2s linear 0s;
   }
 
-  .search__input:focus {
-    border: 2px solid #1fa9e4;
-  }
+
   .search__input:focus {
     border-color: #1fa9e4;
     box-shadow: rgba(0, 157, 224) 0px 0px 0px 0.0625rem;
+        padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
   }
 
   .search__input:focus + .search__label {
     transform: translateY(-0.6875rem) scale(0.75);
   }
+
   .search__label {
     top: 0.875rem;
     width: auto;
@@ -130,19 +130,93 @@
   }
 
   .download-img {
-    position: absolute;
+   
     z-index: 1;
     -o-object-fit: cover;
     object-fit: cover;
     height: 100%;
-    right: 0;
-  }
-
-  .download-textContainer {
-    max-width: 40%;
+    left: 0;
     width:100%;
   }
+
+  @media screen and (min-width: 640px) {
+       .download-textContainer {
+    max-width: 60%;
+    width:100%;
+  }
+  }
+
+  @media screen and (min-width: 1023px) {
+       .download-textContainer {
+    max-width: 40%;
+ 
+  }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .download__image-cont {
+     
+      right: -800px;
+      
+    }
+  
+  }
+
+  .download__image-cont {
+      right: -500px;
+      top: 0;
+    }
+  @media screen and (max-width: 1023px) {
+    .download__image-cont {
+      right: -700px;
+      
+    }
+ 
+  }
+  @media screen and (max-width: 1199px) {
+    .download__image-cont {
+      right: -600px;
+    }
+  }
+
+ 
+
+
+
+  .partner__text {
+    min-height: 180px;
+  }
+
+  .partner__link::after {
+content: '';
+width: 100%;
+bottom: -0.5rem;
+height: 1px;
+background-color: #1fa9e4;
+position: absolute;
+left: 0;
+transition: width .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .partner__link:hover.partner__link::after {
+    width: 0;
+transition: width .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    /* height: 0; */
+  }
+.whatswolt__content {
+  background-position: 50% 0;
+background-repeat: no-repeat;
 }
+
+@media screen and (min-width:1024px) {
+  .whatswolt__content {
+    background-image: none;
+  }
+}
+}
+
+
 
 /* :-ms-input-placeholder */
 /* ::-webkit-input-placeholder */
