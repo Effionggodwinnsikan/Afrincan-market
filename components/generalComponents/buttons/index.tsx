@@ -10,7 +10,7 @@ export const Button = ({ children, bluebg, nobg }: ButtonProps) => {
   return (
     <>
       {bluebg && (
-        <button className="bg-blue-400 p-3 rounded-lg text-white flex items-center justify-center border-0 outline-0 font-bold">
+        <button className="bg-primaryBtn p-3 rounded-lg text-white flex items-center justify-center border-0 outline-0 font-bold">
           {children}
         </button>
       )}

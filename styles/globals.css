@@ -153,12 +153,12 @@
     transition: border 0.2s linear 0s;
   }
 
+ 
   .textfield__input:focus {
-    border: 2px solid #1fa9e4;
-  }
-  .textfield__input:focus {
-    border-color: #1fa9e4;
+     border-color: #1fa9e4;
     box-shadow: rgba(0, 157, 224) 0px 0px 0px 0.0625rem;
+        padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
   }
 
    .textfield__label {
@@ -252,6 +252,38 @@ background-repeat: no-repeat;
     background-image: none;
   }
 }
+
+/* Select */
+
+ .select {
+    line-height: 1.5rem;
+    border: none;
+    outline: none;
+    padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+    padding-inline: 1rem 2.5rem;
+    color: rgb(32, 33, 37);
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
+    border: 2px solid rgba(32, 33, 37, 0.12);
+    border-radius: 0.5rem;
+    transition: border 0.2s linear 0s;
+  }
+
+  .select option {
+   padding-inline-start:  0.875rem; 
+    padding: 0.75rem 0.875rem;
+  }
+  .select:focus {
+    
+    box-shadow: rgba(0, 157, 224) 0px 0px 0px 0.0625rem;
+        padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+  }
 }
 
 

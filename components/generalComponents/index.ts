@@ -1,3 +1,5 @@
 export * from './buttons'
 export * from './header'
+export * from './select'
+export * from './input'
 export {default as Footer} from './Footer'

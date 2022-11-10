@@ -7,10 +7,10 @@ interface InputProps {
 }
 export const TextInput = ({label,type, id, htmlFor}:InputProps) => {
   return (
-    <div className="flex flex-col relative w-full search__container cursor-pointer ">
+    <div className="flex flex-col relative w-full search__container ">
       <input
         type={type}
-        className="bg-white textfield__input text-inputTxt font-normal text-medium w-full cursor-pointer"
+        className="bg-white textfield__input text-inputTxt font-normal text-medium w-full"
         id={id}
       />
       <label
