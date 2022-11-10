@@ -71,7 +71,7 @@ export const Hero = () => {
         <img
           src="https://cdn.wolt.com/frontpage-assets/hero-images/6_Saturday.jpg"
           alt="hero-banner"
-          className=" hero-img"
+          className=" hero-img " 
         />
       </div>
     </section>
