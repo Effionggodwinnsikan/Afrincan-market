@@ -41,7 +41,14 @@ export const theme = createTheme({
         },
       },
     },
- 
+    MuiAccordion: {
+      defaultProps: {
+        disableGutters: true,
+        elevation: 0,
+        square:true
+        
+      }
+    }
     
   },
 });
