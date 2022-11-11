@@ -1,12 +1,12 @@
 import React, { ReactNode, useState } from "react";
-import { Header,Footer, CreateAccount, Register } from "../components";
+import { Header,Footer,  Register, Login } from "../components";
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   const [openSignUp, setOpenSignUp] = useState(true)
   return (
     <>
       <Header />
-      {/* <CreateAccount open={ openSignUp} /> */}
+      {/* <Login open={ openSignUp} /> */}
       <Register open={ openSignUp} />
       {children}
       <Footer />

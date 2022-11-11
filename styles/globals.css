@@ -284,6 +284,31 @@ background-repeat: no-repeat;
         padding-top: 1.25rem;
     padding-bottom: 0.25rem;
   }
+
+  /* checkbox */
+
+  .checkbox__input {
+clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  }
+
+  .checkbox--active{
+background: #1fa9e4;
+  }
+
+  .modal__content {
+        max-height: min(50rem, 100vh - 24px);
+        overflow-y: scroll;
+  }
+
+  .modal__content::-webkit-scrollbar {
+    width: 5px;
+  }
 }
 
 

@@ -30,12 +30,15 @@ export const Select = ({ name, id, onChange, dataTestID,label, options, disabled
           id={id}
           data-testid={dataTestID}
           onChange={onChange}
+          defaultValue=""
           className={`select text-inputTxt font-normal text-medium w-full select hover:border-2 hover:border-primaryBtn  transition-[border]  focus:boder focus:border-primaryBtn `}
         >
           {disabled && <option value="" disabled></option>}
           {options.map((item, index) => {
+
             // options display name if option includes key-name && title if option has key title
             // value is abr if option includes key abr && name or title is id does not exist
+            
             return (
               <option
                 value={!item.abr ? item.name || item.title : item.abr}

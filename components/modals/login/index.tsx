@@ -1,34 +1,54 @@
 import { Modal } from "@mui/material";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { TextInput } from "../../generalComponents/input";
+import ClearIcon from "@mui/icons-material/Clear";
 
-interface SignupProps {
+interface LoginProps {
   open: boolean;
   onClose?: () => void;
   onClick?: () => void;
 }
 
-export const CreateAccount: React.FC<SignupProps> = ({
-  open,
-  onClose,
-  onClick,
-}) => {
+export const Login: React.FC<LoginProps> = ({ open, onClose, onClick }) => {
+
+  const [showPassword, setShowPassword] = useState(false)
+
+  function displayPassword() {
+    setShowPassword(!showPassword)
+  }
+
+
   return (
     <>
       <Modal open={open} onClose={onClose}>
         <div className="flex flex-col border-0  rounded-xl p-4 absolute gap-6 left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[31.25rem] w-full bg-white overflow-hidden shadow-[rgb(0 0 0 / 6%) 0px 0px 1rem 0px, rgb(0 0 0 / 12%) 0px 1rem 1rem 0px] md:rounded-2xl">
           <div className="flex flex-col gap-4">
-            <h2 className="text-2xl text-maintxt font-semibold">
-              Create an account or log in
-            </h2>
-            <p className="text-maintxt font-normal">
-              Log in below or create a new Wolt account.
-            </p>
+            <div className="flex justify-right items-center relative h-[30px] w-full z-10 bg-white">
+              <button
+                className="flex items-center justify-center bg-[#E4E4E4] p-1 rounded-[50%] font-bold text-[32px] border-none outline-none cursor-pointer"
+                onClick={onClose}
+              >
+                <ClearIcon fontSize="inherit" />
+              </button>
+            </div>
+            <h2 className="text-2xl text-maintxt font-semibold">log in</h2>
           </div>
           <div className="flex flex-col gap-4">
             <form action="" className="flex flex-col gap-4">
               <TextInput label="Email " type="email" />
+              <div className="flex flex-col gap-2 items-left">
+                <TextInput
+                  label="Password "
+                  type={showPassword ? "text" : "password"}
+                />
+                <button
+                  className="border-none outline-none bg-none font-semibold text-xs w-[max-content]"
+                  onClick={(e) => { e.preventDefault(); setShowPassword(!showPassword); }}
+                >
+                  {showPassword ? "Hide password" : "Show password"}
+                </button>
+              </div>
               <button
                 className="bg-primaryBtn border-0 outline-0 text-white text-base font-semibold rounded-lg py-[0.625rem] px-2"
                 onClick={onClick}
@@ -36,7 +56,7 @@ export const CreateAccount: React.FC<SignupProps> = ({
                 Next
               </button>
             </form>
-            <p className=" text-xs">
+            {/* <p className=" text-xs">
               Please visit
               <Link href="/">
                 <span className="text-primaryBtn font-semibold px-[2.5px]">
@@ -60,7 +80,7 @@ export const CreateAccount: React.FC<SignupProps> = ({
                 </span>
               </Link>
               apply.
-            </p>
+            </p> */}
           </div>
         </div>
       </Modal>
