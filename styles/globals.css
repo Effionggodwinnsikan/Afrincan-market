@@ -303,7 +303,7 @@ background: #1fa9e4;
 
   .modal__content {
         max-height: min(50rem, 100vh - 24px);
-        overflow-y: scroll;
+        overflow-y: auto;
   }
 
   .modal__content::-webkit-scrollbar {

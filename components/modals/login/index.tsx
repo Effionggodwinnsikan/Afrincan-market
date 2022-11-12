@@ -22,9 +22,9 @@ export const Login: React.FC<LoginProps> = ({ open, onClose, onClick }) => {
   return (
     <>
       <Modal open={open} onClose={onClose}>
-        <div className="flex flex-col border-0  rounded-xl p-4 absolute gap-6 left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[31.25rem] w-full bg-white overflow-hidden shadow-[rgb(0 0 0 / 6%) 0px 0px 1rem 0px, rgb(0 0 0 / 12%) 0px 1rem 1rem 0px] md:rounded-2xl">
+        <div className="flex flex-col border-0  rounded-xl p-4 absolute gap-6 left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[31.25rem] w-full bg-white overflow-hidden shadow-modalContent md:rounded-2xl">
           <div className="flex flex-col gap-4">
-            <div className="flex justify-right items-center relative h-[30px] w-full z-10 bg-white">
+            <div className="flex justify-end items-center relative h-[30px] w-full z-10 bg-white">
               <button
                 className="flex items-center justify-center bg-[#E4E4E4] p-1 rounded-[50%] font-bold text-[32px] border-none outline-none cursor-pointer"
                 onClick={onClose}
@@ -44,7 +44,10 @@ export const Login: React.FC<LoginProps> = ({ open, onClose, onClick }) => {
                 />
                 <button
                   className="border-none outline-none bg-none font-semibold text-xs w-[max-content]"
-                  onClick={(e) => { e.preventDefault(); setShowPassword(!showPassword); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowPassword(!showPassword);
+                  }}
                 >
                   {showPassword ? "Hide password" : "Show password"}
                 </button>
