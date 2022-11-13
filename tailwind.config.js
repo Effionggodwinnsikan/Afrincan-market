@@ -37,6 +37,8 @@ module.exports = {
       },
       boxShadow: {
         homewhats: "rgb(32 33 37 / 6%) 0px 0px 54px 0px",
+        modalContent:
+          "rgb(0 0 0 / 6%) 0px 0px 1rem 0px, rgb(0 0 0 / 12%) 0px 1rem 1rem 0px",
       },
 
       maxWidth: {
@@ -46,7 +48,7 @@ module.exports = {
         homewhats: "45.625rem",
       },
       right: {
-        "800": "800px",
+        800: "800px",
       },
     },
   },

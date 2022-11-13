@@ -139,6 +139,44 @@
     width:100%;
   }
 
+
+  /* TEXT Input Field */
+
+  .textfield__input {
+    line-height: 1.5rem;
+    border: none;
+    outline: none;
+    padding: 0.75rem 0.875rem;
+    padding-inline-start:  0.875rem;
+    border: 2px solid rgba(32, 33, 37, 0.12);
+    border-radius: 0.5rem;
+    transition: border 0.2s linear 0s;
+  }
+
+ 
+  .textfield__input:focus {
+     border-color: #1fa9e4;
+    box-shadow: rgba(0, 157, 224) 0px 0px 0px 0.0625rem;
+        padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+   .textfield__label {
+    top: 0.875rem;
+    width: auto;
+    left: 0.875rem;
+    right: 0.875rem;
+    transition: transform 0.15s ease-in-out 0s;
+    transform-origin: left center;
+    pointer-events: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .textfield__input:focus + .textfield__label {
+    transform: translateY(-0.6875rem) scale(0.75);
+  }
   @media screen and (min-width: 640px) {
        .download-textContainer {
     max-width: 60%;
@@ -214,6 +252,63 @@ background-repeat: no-repeat;
     background-image: none;
   }
 }
+
+/* Select */
+
+ .select {
+    line-height: 1.5rem;
+    border: none;
+    outline: none;
+    padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+    padding-inline: 1rem 2.5rem;
+    color: rgb(32, 33, 37);
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
+    border: 2px solid rgba(32, 33, 37, 0.12);
+    border-radius: 0.5rem;
+    transition: border 0.2s linear 0s;
+  }
+
+  .select option {
+   padding-inline-start:  0.875rem; 
+    padding: 0.75rem 0.875rem;
+  }
+  .select:focus {
+    
+    box-shadow: rgba(0, 157, 224) 0px 0px 0px 0.0625rem;
+        padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  /* checkbox */
+
+  .checkbox__input {
+clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  }
+
+  .checkbox--active{
+background: #1fa9e4;
+  }
+
+  .modal__content {
+        max-height: min(50rem, 100vh - 24px);
+        overflow-y: auto;
+  }
+
+  .modal__content::-webkit-scrollbar {
+    width: 5px;
+  }
 }
 
 
