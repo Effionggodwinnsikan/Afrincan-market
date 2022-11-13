@@ -1,3 +1,3 @@
-export * from "./home";
-export * from "./generalComponents";
-export * from "./generalComponents/header";
+export * from './home'
+export * from './generalComponents'
+export * from './modals'

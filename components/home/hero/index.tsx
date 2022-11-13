@@ -60,7 +60,7 @@ export const Hero = () => {
                   Choose delivery address
                 </label>
               </div>
-              <button className="bg-primaryBtn border-0 outline-0 text-white font-semibold rounded-lg py-0.4rem px-2 ">
+              <button className="bg-primaryBtn border-0 outline-0 text-white font-semibold rounded-lg py-[0.4rem] px-2  ">
                 Search
               </button>
             </div>
