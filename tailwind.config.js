@@ -18,6 +18,8 @@ module.exports = {
         inputTxt: "#505154",
         primaryBtn: "#1FA9E4",
         secondarybg: "#F2F3F5",
+        lightblue: "#D6EFFA",
+        lightdark: "rgba(0, 0, 0, 0.2)",
       },
       backgroundImage: {
         "hero-pattern": "url('/assets/images/2_Tuesday.jpg')",

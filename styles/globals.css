@@ -53,10 +53,13 @@
   html,
   body {
     @apply font-omnes scroll-smooth;
+    overflow-x: hidden;
   }
 
   .body {
     color: #202125;
+    background-color: #fff;
+  
   }
 
   .hero-img {

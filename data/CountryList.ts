@@ -1,4 +1,4 @@
-type CountryListProps = {
+interface CountryListProps  {
     name: string;
 }
 
