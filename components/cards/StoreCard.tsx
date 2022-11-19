@@ -29,7 +29,7 @@ export const StoreCard = ({ src, title, desc, min, isClosed }: CategoryCardProps
         <CardMedia component="img" height="142" image={src} alt={title} />
         {isClosed && (
           <div className="absolute top-0 left-0 h-full w-full bg-lightdark flex items-center justify-center">
-            <p className="text-white text-lg font-semibold">Closed</p>
+            <p className="text-white text-xl font-semibold">Closed</p>
           </div>
         )}
       </div>

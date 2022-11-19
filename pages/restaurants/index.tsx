@@ -7,12 +7,13 @@ import { Swiper as SwiperCore } from "swiper/types";
 import EastIcon from "@mui/icons-material/East";
 import WestIcon from "@mui/icons-material/West";
 
-// Import Swiper styles
-import "swiper/css";
 import { resCategories } from "../../data/restaurantsData";
 import { CatergoryCard } from "../../components/cards/CatergoryCard";
 import { StoreCard } from "../../components/cards/StoreCard";
 import { stores } from "../../data/stores";
+import "swiper/css";
+import "swiper/css/navigation";
+import Restaurantstab from "../../components/tabs/RestaurantsTab";
 
 const Resturants = () => {
   const swiperRef = useRef<SwiperCore>();
@@ -50,7 +51,7 @@ const Resturants = () => {
             </button>
           </div>
         </div>
-        <div className="flex w-screen pb-10">
+        <div className="flex w-screen min-h-[50vh]">
           <Swiper
             spaceBetween={20}
             slidesPerView={6}
@@ -110,7 +111,11 @@ const Resturants = () => {
   );
 };
 Resturants.getLayout = function getLayout(page: ReactNode) {
-  return <RootLayout>{page}</RootLayout>;
+  return (
+    <RootLayout>
+      <Restaurantstab>{page}</Restaurantstab>
+    </RootLayout>
+  );
 };
 
 export default Resturants;

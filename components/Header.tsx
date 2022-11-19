@@ -1,18 +1,18 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { Button } from "..";
-import { Login, Register } from "../../modals";
+import { Button } from "./generalComponents";
+import { Login, Register } from "./modals";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-export const Header = () => {
+const Header = () => {
   const [openSignUp, setOpenSignUp] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [tooltip, setTooltip] = useState(false);
 
-  const handleTooltip = (e:any) => {
-    e.preventDefault()
+  const handleTooltip = (e: any) => {
+    e.preventDefault();
     setTooltip(!tooltip);
   };
   const closeLogin = () => setOpenLogin(!openLogin);
@@ -102,3 +102,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default Header
