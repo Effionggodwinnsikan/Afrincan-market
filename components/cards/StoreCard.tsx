@@ -35,7 +35,7 @@ interface CategoryCardProps {
      >
        <div className="relative">
          <CardMedia component="img" height="142" image={src} alt={title} />
-         <div className="absolute bg-white p-2 rounded-lg top-3 left-3">
+         <div className="absolute bg-white p-1 rounded-lg top-3 left-3 text-xs">
            {category}
          </div>
          {!open && (

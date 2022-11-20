@@ -58,17 +58,21 @@ const Resturants = () => {
               swiperRef.current = swiper;
             }}
             breakpoints={{
-              0: {
-                width: 0,
-                slidesPerView: 2,
+              1024: {
+                slidesPerView: 6,
+                spaceBetween: 20,
               },
               768: {
-                width: 768,
-                slidesPerView: 5,
+                slidesPerView: 6,
+                spaceBetween: 15,
               },
-              1200: {
-                width: 1200,
-                slidesPerView: 5.5,
+              640: {
+                slidesPerView: 4,
+                spaceBetween: 15,
+              },
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 10,
               },
             }}
           >
@@ -88,9 +92,7 @@ const Resturants = () => {
       </section>
       <section className="flex flex-col gap-4 w-full mb-10">
         <div className="flex justify-between items-center">
-          <h4 className="text-[1.75rem] font-semibold">
-            All restaurants
-          </h4>
+          <h4 className="text-[1.75rem] font-semibold">All restaurants</h4>
         </div>
         <Grid container spacing={2}>
           {restaurants.map((item, id) => {
