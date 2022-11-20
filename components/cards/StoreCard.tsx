@@ -34,14 +34,14 @@ interface CategoryCardProps {
         )}
       </div>
       <CardContent>
-        <div className="flex justify-between items-center gap-4 border-b-2 border-dashed border-[#F8F8F8] pb-3">
+        <div className="flex justify-between items-center md:gap-4 border-b-2 border-dashed border-[#F8F8F8] pb-3">
           <div className="flex flex-col">
-            <h4 className="font-semibold text-xl">{title}</h4>
+            <h4 className="font-semibold text-xl text-ellipsis">{title}</h4>
             <p className="text-sm font-normal texe-[#B3B3B5] text-ellipsis">
               {desc} places
             </p>
           </div>
-          <div className="flex flex-col bg-[#EBF7FD] text-primaryBtn font-normal text-sm rounded-xl p-2 items-center">
+          <div className="flex flex-col bg-[#EBF7FD] text-primaryBtn text-xs font-normal md:text-sm rounded-xl p-2 items-center">
             {min}
             <span>min</span>
           </div>

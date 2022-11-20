@@ -54,14 +54,14 @@ const Resturants = () => {
         <div className="flex w-screen min-h-[50vh]">
           <Swiper
             spaceBetween={20}
-            slidesPerView={6}
+            // slidesPerView={6}
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
             breakpoints={{
               0: {
                 width: 0,
-                slidesPerView: 0.8,
+                slidesPerView: 2,
               },
               768: {
                 width: 768,
