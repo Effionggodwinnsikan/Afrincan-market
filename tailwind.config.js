@@ -16,8 +16,12 @@ module.exports = {
         maintxt: "#202125",
         placeholder: "#B3B3B5",
         inputTxt: "#505154",
-        primaryBtn: "#1FA9E4",
+        primaryBtn: "#EDCE00",
         secondarybg: "#F2F3F5",
+        lightblue: "#D6EFFA",
+        lightdark: "rgba(0, 0, 0, 0.5)",
+        primary: "#EDCE00",
+        // secondary: "",
       },
       backgroundImage: {
         "hero-pattern": "url('/assets/images/2_Tuesday.jpg')",

@@ -1,7 +1,7 @@
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import Link from "next/link";
 import React from "react";
-import { footerData } from "../../../data/footerData";
+import { footerData } from "../data/footerData";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import useMediaQuery from "@mui/material/useMediaQuery";
 

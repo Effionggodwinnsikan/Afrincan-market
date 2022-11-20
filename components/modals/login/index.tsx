@@ -14,9 +14,7 @@ interface LoginProps {
 export const Login: React.FC<LoginProps> = ({ open, onClose, onClick }) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  function displayPassword() {
-    setShowPassword(!showPassword);
-  }
+
 
   return (
     <>
