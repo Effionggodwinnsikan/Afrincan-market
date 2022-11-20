@@ -12,11 +12,22 @@ export interface Categoryprops {
 }
 
 export interface StoreProps {
+  name: string;
+  img: string;
+  min: string;
+  desc: string;
+  price: string;
+  rating?: string;
+  category: string;
+  open?: boolean;
+}
+export interface RestaurantsProps {
     name: string;
     img: string;
     min: string;
     desc: string;
     price: string;
     rating?: string;
-    closed?: boolean
+    open?: boolean
+
 }

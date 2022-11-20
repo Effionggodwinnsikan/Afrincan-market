@@ -8,9 +8,10 @@ interface StoreCardProps {
   src: string;
   title: string;
   num: string;
+  category?: string;
 }
 
-const CategoryCard = ({ src, title, num }: StoreCardProps) => {
+const CategoryCard = ({ src, title, num, category }: StoreCardProps) => {
   return (
     <Card
       elevation={2}
@@ -22,10 +23,12 @@ const CategoryCard = ({ src, title, num }: StoreCardProps) => {
         "&:hover": {
           transform: "scale(1.08)",
           transition: "all 0.3s ease-in-out",
+          position: "relative",
         },
       }}
     >
       <CardMedia component="img" height="300" image={src} alt={title} />
+      
       <CardContent>
         <h4 className="font-semibold text-xl">{title}</h4>
         <p className="text-sm font-normal">{num} places</p>

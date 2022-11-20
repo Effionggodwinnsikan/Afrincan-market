@@ -7,10 +7,9 @@ import { Swiper as SwiperCore } from "swiper/types";
 import EastIcon from "@mui/icons-material/East";
 import WestIcon from "@mui/icons-material/West";
 
-import { resCategories } from "../../data/restaurantsData";
+import { resCategories, restaurants } from "../../data/restaurantsData";
 import { CategoryCard } from "../../components";
-import { StoreCard } from "../../components";
-import { stores } from "../../data/stores";
+import { RestaurantCard } from "../../components";
 import "swiper/css";
 import "swiper/css/navigation";
 import Restaurantstab from "../../components/tabs/RestaurantsTab";
@@ -89,18 +88,20 @@ const Resturants = () => {
       </section>
       <section className="flex flex-col gap-4 w-full mb-10">
         <div className="flex justify-between items-center">
-          <h4 className="text-[1.75rem] font-semibold">Categories</h4>
+          <h4 className="text-[1.75rem] font-semibold">
+            All restaurants
+          </h4>
         </div>
         <Grid container spacing={2}>
-          {stores.map((store, id) => {
+          {restaurants.map((item, id) => {
             return (
               <Grid item xs={12} key={id} sm={6} lg={4}>
-                <StoreCard
-                  title={store.name}
-                  src={store.img}
-                  desc={store.desc}
-                  min={store.min}
-                  isClosed={store.closed}
+                <RestaurantCard
+                  title={item.name}
+                  src={item.img}
+                  desc={item.desc}
+                  min={item.min}
+                  isClosed={item.open}
                 />
               </Grid>
             );
