@@ -10,7 +10,7 @@ interface CategoryCardProps {
     isClosed?: boolean;
 }
 
-export const StoreCard = ({ src, title, desc, min, isClosed }: CategoryCardProps) => {
+ const StoreCard = ({ src, title, desc, min, isClosed }: CategoryCardProps) => {
   return (
     <Card
       elevation={2}
@@ -50,3 +50,5 @@ export const StoreCard = ({ src, title, desc, min, isClosed }: CategoryCardProps
     </Card>
   );
 };
+
+export default StoreCard; 

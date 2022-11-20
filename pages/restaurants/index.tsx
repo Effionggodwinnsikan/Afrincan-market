@@ -8,8 +8,8 @@ import EastIcon from "@mui/icons-material/East";
 import WestIcon from "@mui/icons-material/West";
 
 import { resCategories } from "../../data/restaurantsData";
-import { CatergoryCard } from "../../components/cards/CatergoryCard";
-import { StoreCard } from "../../components/cards/StoreCard";
+import { CategoryCard } from "../../components";
+import { StoreCard } from "../../components";
 import { stores } from "../../data/stores";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -23,7 +23,7 @@ const Resturants = () => {
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-4xl font-bold">Restaurants near me</h2>
         <div className="flex items-center gap-3">
-          <p className="text-base text-primaryBtn font-medium">
+          <p className="hidden md:flex md:text-base text-primaryBtn font-medium">
             Sorted by Recommended
           </p>
           <div className="rounded-[100%] bg-lightblue p-2 cursor-pointer">
@@ -61,7 +61,7 @@ const Resturants = () => {
             breakpoints={{
               0: {
                 width: 0,
-                slidesPerView: 4,
+                slidesPerView: 0.8,
               },
               768: {
                 width: 768,
@@ -76,7 +76,7 @@ const Resturants = () => {
             {resCategories.map((category, id) => {
               return (
                 <SwiperSlide key={id}>
-                  <CatergoryCard
+                  <CategoryCard
                     src={category.img}
                     title={category.name}
                     num={category.numPlaces}

@@ -5,11 +5,15 @@ import { Login, Register } from "./modals";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import SearchInput from "./SearchInput";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter()
   const [openSignUp, setOpenSignUp] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [tooltip, setTooltip] = useState(false);
+  
 
   const handleTooltip = (e: any) => {
     e.preventDefault();
@@ -17,13 +21,18 @@ const Header = () => {
   };
   const closeLogin = () => setOpenLogin(!openLogin);
   const closeSignUp = () => setOpenSignUp(!openSignUp);
+
+
   return (
     <>
       <header className="flex  justify-center  px-4 py-3 md:px-10 xl:px-0">
-        <div className="flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0">
+        <div className="flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0 gap-3">
           <Link href={"/"}>
             <p className="text-black font-bold text-xl italic">Wolt</p>
           </Link>
+
+          {/* Searh bar */}
+          {router.pathname !== "/" && <SearchInput />}
 
           {/* MOBILE MENU */}
           <div className="pointer-events-[initial] flex items-center lg:hidden relative">
@@ -34,6 +43,7 @@ const Header = () => {
               <AccountCircleIcon className="text-[#20212533] border-white border-1 text-4xl rounded-full" />
               {tooltip ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </button>
+
             {tooltip && (
               <div className="flex flex-col gap absolute popover -bottom-[10.75rem] right-0 min-w-[13.75rem]">
                 <div className="flex flex-col relative p-[0.5rem] gap-1 z-20 bg-white  ">

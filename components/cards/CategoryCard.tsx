@@ -10,7 +10,7 @@ interface StoreCardProps {
   num: string;
 }
 
-export const CatergoryCard = ({ src, title, num }: StoreCardProps) => {
+const CategoryCard = ({ src, title, num }: StoreCardProps) => {
   return (
     <Card
       elevation={2}
@@ -33,3 +33,5 @@ export const CatergoryCard = ({ src, title, num }: StoreCardProps) => {
     </Card>
   );
 };
+
+export default CategoryCard;
