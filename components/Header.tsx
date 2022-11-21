@@ -25,8 +25,20 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex  justify-center  px-4 py-3 md:px-10 xl:px-0">
-        <div className="flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0 gap-3">
+      <header
+        className={
+          router.pathname === "/"
+            ? "flex  justify-center  px-4 py-3 md:px-10 xl:px-0"
+            : "flex  justify-center  px-4 py-3 md:px-10 max-w-[1600px] w-full m-auto "
+        }
+      >
+        <div
+          className={
+            router.pathname === "/"
+              ? "flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0 gap-3"
+              : "flex items-center justify-between gap-3  max-w-[1600px] w-full m-auto"
+          }
+        >
           <Link href={"/"}>
             <p className="text-black font-bold text-xl italic">Wolt</p>
           </Link>

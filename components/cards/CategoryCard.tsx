@@ -19,6 +19,9 @@ const CategoryCard = ({ src, title, num}: StoreCardProps) => {
         backgroundColor: "#fff",
         cursor: "pointer",
         transition: "scale 0.3s ease-in-out",
+        borderRadius: "8px",
+        boxShadow: "1px 5px 5px rgba(0, 0, 0, 0.1)",
+      
         "&:hover": {
           transform: "scale(1.03)",
           transition: "all 0.3s ease-in-out",
@@ -37,10 +40,10 @@ const CategoryCard = ({ src, title, num}: StoreCardProps) => {
         className="object-contain  w-full "
       />
 
-      <CardContent>
-        <h4 className="font-semibold text-xl">{title}</h4>
-        <p className="text-sm font-normal">{num} places</p>
-      </CardContent>
+      <div className="p-4">
+        <h4 className="font-semibold  text-base md:text-lg">{title}</h4>
+        <p className="text-xs md:text-sm font-normal">{num} places</p>
+      </div>
     </Card>
   );
 };

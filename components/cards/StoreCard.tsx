@@ -21,14 +21,15 @@ interface CategoryCardProps {
  }: CategoryCardProps) => {
    return (
      <Card
-       elevation={2}
+       elevation={1}
        // variant="string"
        sx={{
          backgroundColor: "#fff",
          cursor: "pointer",
          transition: "scale 0.3s linear",
+         boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.1)",
          "&:hover": {
-           transform: "scale(1.04)",
+           transform: "scale(1.02)",
            transition: "all 0.3s linear",
          },
        }}
