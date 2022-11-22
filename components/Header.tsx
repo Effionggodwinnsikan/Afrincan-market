@@ -28,8 +28,8 @@ const Header = () => {
       <header
         className={
           router.pathname === "/"
-            ? "flex  justify-center  px-4 py-3 md:px-10 xl:px-0"
-            : "flex  justify-center  px-4 py-3 md:px-10 max-w-[1600px] w-full m-auto "
+            ? "px-4 py-3 md:px-10 xl:px-0"
+            : "  px-4 py-3 md:px-10 max-w-[1600px] w-full m-auto bg-white sticky left-0 top-0 border-b border-[#2021251f] border-solid z-20"
         }
       >
         <div
