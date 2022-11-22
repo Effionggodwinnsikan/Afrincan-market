@@ -17,7 +17,7 @@ export const theme = createTheme({
   },
   typography: {
     allVariants: {
-      fontFamily: "omnes san-serif",
+      fontFamily: "omnes, san-serif",
     },
   },
   components: {

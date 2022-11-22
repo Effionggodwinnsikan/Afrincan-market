@@ -7,10 +7,9 @@ import { Swiper as SwiperCore } from "swiper/types";
 import EastIcon from "@mui/icons-material/East";
 import WestIcon from "@mui/icons-material/West";
 
-import { resCategories } from "../../data/restaurantsData";
+import { resCategories, restaurants } from "../../data/restaurantsData";
 import { CategoryCard } from "../../components";
-import { StoreCard } from "../../components";
-import { stores } from "../../data/stores";
+import { RestaurantCard } from "../../components";
 import "swiper/css";
 import "swiper/css/navigation";
 import Restaurantstab from "../../components/tabs/RestaurantsTab";
@@ -19,9 +18,9 @@ const Resturants = () => {
   const swiperRef = useRef<SwiperCore>();
 
   return (
-    <div className="flex flex-col mt-10  px-4 md:px-10 xl:px-0 w-full max-w-6.5xl  m-auto my-0 gap-10 min-h-screen">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-4xl font-bold">Restaurants near me</h2>
+    <div className="flex flex-col mt-10  w-full  gap-10 min-h-screen">
+      <div className="flex justify-between items-center mb-4 px-4 md:px-10 max-w-[1600px] w-full m-auto">
+        <h2 className="text-4xl md:text-5xl font-bold">Restaurants near me</h2>
         <div className="flex items-center gap-3">
           <p className="hidden md:flex md:text-base text-primaryBtn font-medium">
             Sorted by Recommended
@@ -33,8 +32,8 @@ const Resturants = () => {
       </div>
       {/* categories */}
 
-      <section className="flex flex-col gap-4 w-full">
-        <div className="flex justify-between items-center">
+      <section className="flex flex-col gap-4 max-w-[1600px]  w-full m-auto overflow-x-hidden">
+        <div className="flex justify-between items-center px-4 md:px-10 ">
           <h4 className="text-[1.75rem] font-semibold">Categories</h4>
           <div className="flex items-center gap-2">
             <button
@@ -51,25 +50,23 @@ const Resturants = () => {
             </button>
           </div>
         </div>
-        <div className="flex w-screen min-h-[50vh]">
+        <div className="flex w-full  pl-4 md:pl-10 h-[220px] md:h-full md:min-h-[310px]">
           <Swiper
-            spaceBetween={20}
-            // slidesPerView={6}
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
             breakpoints={{
-              0: {
-                width: 0,
-                slidesPerView: 2,
+              1024: {
+                slidesPerView: 6.5,
+                spaceBetween: 13,
               },
-              768: {
-                width: 768,
-                slidesPerView: 5,
+              640: {
+                slidesPerView: 3.8,
+                spaceBetween: 10,
               },
-              1200: {
-                width: 1200,
-                slidesPerView: 5.5,
+              320: {
+                slidesPerView: 2.5,
+                spaceBetween: 10,
               },
             }}
           >
@@ -87,20 +84,20 @@ const Resturants = () => {
           </Swiper>
         </div>
       </section>
-      <section className="flex flex-col gap-4 w-full mb-10">
+      <section className="flex flex-col gap-4 px-4 md:px-10 max-w-[1600px] w-full m-auto">
         <div className="flex justify-between items-center">
-          <h4 className="text-[1.75rem] font-semibold">Categories</h4>
+          <h4 className="text-[1.75rem] font-semibold">All restaurants</h4>
         </div>
         <Grid container spacing={2}>
-          {stores.map((store, id) => {
+          {restaurants.map((item, id) => {
             return (
               <Grid item xs={12} key={id} sm={6} lg={4}>
-                <StoreCard
-                  title={store.name}
-                  src={store.img}
-                  desc={store.desc}
-                  min={store.min}
-                  isClosed={store.closed}
+                <RestaurantCard
+                  title={item.name}
+                  src={item.img}
+                  desc={item.desc}
+                  min={item.min}
+                  isClosed={item.open}
                 />
               </Grid>
             );
