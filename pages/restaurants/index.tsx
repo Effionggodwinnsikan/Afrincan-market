@@ -14,7 +14,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Restaurantstab from "../../components/tabs/RestaurantsTab";
 
-const Resturants = () => {
+const Restaurants = () => {
   const swiperRef = useRef<SwiperCore>();
 
   return (
@@ -84,7 +84,7 @@ const Resturants = () => {
           </Swiper>
         </div>
       </section>
-      <section className="flex flex-col gap-4 px-4 md:px-10 max-w-[1600px] w-full m-auto">
+      <section className="flex flex-col gap-4 px-4 md:px-10 max-w-[1600px] w-full m-auto 2xl:px-0 2xl:pl-10">
         <div className="flex justify-between items-center">
           <h4 className="text-[1.75rem] font-semibold">All restaurants</h4>
         </div>
@@ -107,7 +107,7 @@ const Resturants = () => {
     </div>
   );
 };
-Resturants.getLayout = function getLayout(page: ReactNode) {
+Restaurants.getLayout = function getLayout(page: ReactNode) {
   return (
     <RootLayout>
       <Restaurantstab>{page}</Restaurantstab>
@@ -115,4 +115,4 @@ Resturants.getLayout = function getLayout(page: ReactNode) {
   );
 };
 
-export default Resturants;
+export default Restaurants;

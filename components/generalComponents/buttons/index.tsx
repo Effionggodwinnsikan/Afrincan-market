@@ -20,7 +20,7 @@ export const Button = ({ children, bluebg, nobg, onClick }: ButtonProps) => {
       )}
       {nobg && (
         <button
-          className="bg-white text-#8B8C8E  flex items-center justify-center border-0 outline-0 font-semibold onClick={onClick}"
+          className="bg-0 text-#8B8C8E  flex items-center justify-center border-0 outline-0 font-semibold onClick={onClick}"
           onClick={onClick}
         >
           {children}

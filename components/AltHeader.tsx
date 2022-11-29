@@ -8,12 +8,11 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SearchInput from "./SearchInput";
 import { useRouter } from "next/router";
 
-const Header = () => {
-  const router = useRouter()
+const AltHeader = () => {
+  const router = useRouter();
   const [openSignUp, setOpenSignUp] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [tooltip, setTooltip] = useState(false);
-  
 
   const handleTooltip = (e: any) => {
     e.preventDefault();
@@ -22,29 +21,19 @@ const Header = () => {
   const closeLogin = () => setOpenLogin(!openLogin);
   const closeSignUp = () => setOpenSignUp(!openSignUp);
 
-
   return (
     <>
       <header
-        className={
-          router.pathname === "/"
-            ? "px-4 py-3 md:px-10 xl:px-0"
-            : "  px-4 py-3 md:px-10 max-w-[1600px] w-full m-auto bg-white sticky left-0 top-0 border-b border-[#2021251f] border-solid z-20"
-        }
-      >
+        className="px-4 py-3 md:px-10 xl:px-0">
         <div
-          className={
-            router.pathname === "/"
-              ? "flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0 gap-3"
-              : "flex items-center justify-between gap-3  max-w-[1600px] w-full m-auto"
-          }
+          className="flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0 gap-3"
         >
           <Link href={"/"}>
             <p className="text-black font-bold text-xl italic">Wolt</p>
           </Link>
 
           {/* Searh bar */}
-          {router.pathname !== "/" && <SearchInput placeholder="Search..."/>}
+          {router.pathname !== "/" && <SearchInput placeholder="Search..." />}
 
           {/* MOBILE MENU */}
           <div className="pointer-events-[initial] flex items-center lg:hidden relative">
@@ -125,4 +114,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default AltHeader;
