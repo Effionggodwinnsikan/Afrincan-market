@@ -2,15 +2,15 @@ import React, { ReactNode, useEffect, useRef } from "react";
 import AltLayout from "../../../layout/AltLayout";
 import MopedOutlinedIcon from "@mui/icons-material/MopedOutlined";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { Button } from "@mui/material";
+import { Button, Box, Tabs, Tab } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import SearchInput from "../../../components/SearchInput";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
-import {restaurantsProducts} from '../../../data/products';
-import { Link  as Scroll } from 'react-scroll'
+import { restaurantsProducts } from "../../../data/products";
+import { Link as Scroll } from "react-scroll";
 import { ProductCard } from "../../../components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperCore } from "swiper/types";
+
 import "swiper/css";
 
 // interface MenuProps {
@@ -20,14 +20,13 @@ import "swiper/css";
 const Restaurant = () => {
   const menuSet = new Set(restaurantsProducts.map((item) => item.menu));
   const allMenu = Array.from(menuSet);
-  
-  console.log(allMenu)
-const imageUrl =
+
+
+  const imageUrl =
     "https://imageproxy.wolt.com/venue/5e8b3016a9c0943ec072a9d0/94a97d5a-8b52-11ec-8fe4-ae3fbf502e8c_chequers_joel_gueller___1_.jpg?w=600";
 
   const stickyRef = useRef<HTMLDivElement>(null);
 
-  
   // useEffect(() => {
   //   const selectRef = stickyRef.current;
 
@@ -41,9 +40,7 @@ const imageUrl =
   //   }
   //   selectRef.addEventListener("scroll", onScroll);
   // }, [stickyRef]);
-  
-  
-  
+
   return (
     <>
       <div className=" sticky top-0 left-0 z-10 ">
@@ -159,47 +156,47 @@ const imageUrl =
           <SearchInput store placeholder="Search .." />
         </div>
       </section>
-      <section className="flex flex-col gap-6 lg:flex-row  px-4 py-3 md:px-10 xl:px-0 w-full max-w-6.5xl  mx-auto my-0 min-h-screen mt-20 ">
-        <div className="  relative">
-          <div className="sticky top-0 left-0  lg:hidden z-10 ">
-            <div className="flex items-center bg-white shadow-md  h-full min-h-[60px] w-full">
-              <Swiper
-                breakpoints={{
-                  1024: {
-                    slidesPerView: 6.5,
-                    spaceBetween: 13,
-                  },
-                  640: {
-                    slidesPerView: 5.2,
-                    spaceBetween: 5,
-                  },
-                  320: {
-                    slidesPerView: 3.5,
-                    spaceBetween: 15,
-                  },
-                }}
+      {/* Mobile Category slider */}
+      <div className="sticky top-0 left-0 flex items-center bg-white shadow-md lg:hidden z-10 h-[60px]  w-full px-4  md:pl-10 xl:pl-0">
+        <Swiper
+          breakpoints={{
+            640: {
+              slidesPerView: 5.5,
+              spaceBetween: 10,
+            },
+            320: {
+              slidesPerView: 2.1,
+              spaceBetween: 5,
+            },
+          }}
+        >
+          {allMenu.map((menu, id) => {
+            return (
+              <SwiperSlide
+                key={id}
+                className="overflow-hidden h-[20px] text-overflow w-[max-content]"
               >
-                {" "}
-                {allMenu.map((menu, id) => {
-                  return (
-                    <SwiperSlide key={id}>
-                      <Scroll
-                        to={`${menu}`}
-                        spy={true}
-                        smooth={true}
-                        // offset={10}
-                        duration={200}
-                        className="text-base font-semibold cursor-pointer"
-                      >
-                        {menu}
-                      </Scroll>
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-            </div>
-          </div>
-          <div className="sticky top-[5rem] left-0 hidden lg:flex flex-col gap-5  ">
+                <Scroll
+                  to={`${menu}`}
+                  spy={true}
+                  smooth={true}
+                  // offset={10}
+                  duration={200}
+                  className="text-sm font-semibold cursor-pointer w-full whitespace-nowrap text-overflow"
+                >
+                  {menu}
+                </Scroll>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+
+      <section className="flex flex-col gap-6 lg:flex-row lg:px-10 xl:px-0 w-full max-w-6.5xl  xl:mx-auto  min-h-screen my-20 ">
+        <div className="  relative ">
+          {/* Category/Menu */}
+
+          <div className="sticky top-[5rem] left-0 hidden lg:flex flex-col gap-5 ">
             {allMenu.map((menu, id) => {
               return (
                 <Scroll
@@ -218,19 +215,126 @@ const imageUrl =
             })}
           </div>
         </div>
-        <div className="flex flex-col gap-[2.5rem]">
+
+        {/* Products */}
+
+        <div className="flex flex-col gap-[2.5rem]  ">
           {allMenu.map((menu, index) => {
             return (
-              <div className="flex flex-col gap-5" key={index} id={menu}>
-                <h4 className="text-3xl font-semibold">{menu}</h4>
+              <div className="flex flex-col gap-5 " key={index} id={menu}>
+                <h4 className="text-3xl font-semibold px-4  md:px-8 lg:px-5 capitalize">
+                  {menu}
+                </h4>
                 {restaurantsProducts
                   .filter((item) => item.menu === menu)
                   .map((product, id) => {
-                    return <ProductCard key={id} product={product} />;
+                    return <ProductCard key={id} {...product} />;
                   })}
               </div>
             );
           })}
+        </div>
+
+        {/* Restaurant information */}
+        <div className="flex flex-col gap-10">
+          <h2 className="text-xl font-semibold hidden lg:flex">
+            Restaurant information
+          </h2>
+          {/* ADDRESS */}
+          <div className="hidden lg:flex flex-col gap-3">
+            <h4 className="text-lg font-semibold">Address</h4>
+            <div className="flex flex-col gap-1">
+              {/* Primary address */}
+              <p className="text-sm ">The Strand 100, Sliema</p>
+
+              {/* Secondary adrress */}
+              <span className="text-sm opacity-[0.8] ">SLM 3033 Malta</span>
+            </div>
+            <Button
+              variant="text"
+              size="small"
+              sx={{
+                textAlign: "left",
+                justifyContent: "flex-start",
+                fontSize: "0.875rem",
+                fontWeight: "600",
+              }}
+            >
+              See map
+            </Button>
+          </div>
+
+          {/* compliant mobile */}
+          <div className="flex lg:hidden flex-col gap-3 px-4 md:px-10 xl:px-0">
+            <p className="text-sm  ">
+              If you have allergies or other dietary restrictions, please
+              contact the restaurant. The restaurant will provide food-specific
+              information upon request.
+            </p>
+            <div className="flex justify-between items-center">
+              <p className="text-sm font-semibold">Phone Number</p>
+              <a href="tel" className="text-sm font-semibold text-[#1FA9E4]">
+                +35627222882
+              </a>
+            </div>
+          </div>
+
+          {/* Opening times */}
+          <div className="hidden lg:flex flex-col gap-3">
+            <h4 className="text-lg font-semibold">Opening times</h4>
+            <div className="flex flex-col">
+              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <Tabs
+                  // value={value}
+                  // onChange={handleChange}
+                  aria-label="basic tabs example"
+                >
+                  {/* <Tab label="Item One" {...a11yProps(0)} />
+                  <Tabs label="Item Two" {...a11yProps(1)} /> */}
+                </Tabs>
+              </Box>
+              {/* <TabPanel value={value} index={0}>
+                Item One
+              </TabPanel>
+              <TabPanel value={value} index={1}>
+                Item Two
+              </TabPanel>
+              <TabPanel value={value} index={2}>
+                Item Three
+              </TabPanel> */}
+            </div>
+            <div className="flex flex-col gap-1">
+              {/* complaint */}
+              <p className="text-sm max-w-[260px] ">
+                If you have allergies or other dietary restrictions, please
+                contact the restaurant. The restaurant will provide
+                food-specific information upon request.
+              </p>
+            </div>
+            <a href="tel" className="text-sm font-semibold text-[#1FA9E4]">
+              +35627222882
+            </a>
+            <Button
+              variant="text"
+              size="small"
+              sx={{
+                textAlign: "left",
+                justifyContent: "flex-start",
+                fontSize: "0.875rem",
+                fontWeight: "600",
+              }}
+            >
+              See more information
+            </Button>
+          </div>
+          {/*Categories */}
+          <div className="hidden lg:flex flex-col gap-3">
+            <h4 className="text-lg font-semibold">Categories</h4>
+
+            <p className="text-base font-semibold text-[#1FA9E4]">
+              Crepe, Dessert, Pizza, Sweets, Italian
+            </p>
+          </div>
         </div>
       </section>
     </>

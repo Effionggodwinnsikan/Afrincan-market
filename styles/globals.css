@@ -264,6 +264,12 @@
     transition: border 0.2s linear 0s;
   }
 
+  .text-overflow {
+overflow: hidden;
+    text-overflow: ellipsis;
+/* width: minmax(80px, 260px); */
+  }
+
   .select option {
     padding-inline-start: 0.875rem;
     padding: 0.75rem 0.875rem;
@@ -349,8 +355,8 @@ transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   background-color: #202125;
   bottom: -5px;
   left: 0;
-  /* transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1); */
-  /* animation: activeMenu ease .5s; */
+
+  animation: activeMenu ease .5s;
 }
 
 @keyframes activeMenu {
