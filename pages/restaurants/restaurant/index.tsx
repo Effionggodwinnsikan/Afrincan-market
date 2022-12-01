@@ -8,7 +8,7 @@ import SearchInput from "../../../components/SearchInput";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import { restaurantsProducts } from "../../../data/products";
 import { Link as Scroll } from "react-scroll";
-import { ProductCard } from "../../../components";
+import { OpeningTab, ProductCard } from "../../../components";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -157,12 +157,12 @@ const Restaurant = () => {
         </div>
       </section>
       {/* Mobile Category slider */}
-      <div className="sticky top-0 left-0 flex items-center bg-white shadow-md lg:hidden z-10 h-[60px]  w-full px-4  md:pl-10 xl:pl-0">
+      <div className="sticky top-0 left-0 flex items-center bg-white shadow-sm lg:hidden z-10 h-[60px]  w-full px-4  md:pl-10 xl:pl-0">
         <Swiper
           breakpoints={{
             640: {
               slidesPerView: 5.5,
-              spaceBetween: 10,
+              spaceBetween: 15,
             },
             320: {
               slidesPerView: 2.1,
@@ -282,27 +282,15 @@ const Restaurant = () => {
           {/* Opening times */}
           <div className="hidden lg:flex flex-col gap-3">
             <h4 className="text-lg font-semibold">Opening times</h4>
-            <div className="flex flex-col">
-              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                <Tabs
-                  // value={value}
-                  // onChange={handleChange}
-                  aria-label="basic tabs example"
-                >
-                  {/* <Tab label="Item One" {...a11yProps(0)} />
-                  <Tabs label="Item Two" {...a11yProps(1)} /> */}
-                </Tabs>
-              </Box>
-              {/* <TabPanel value={value} index={0}>
-                Item One
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                Item Two
-              </TabPanel>
-              <TabPanel value={value} index={2}>
-                Item Three
-              </TabPanel> */}
-            </div>
+            
+              <OpeningTab
+                label1='Resturant'
+                label2="Delivery"
+                days="Monday-Sunday"
+                time1="00.00–24.00"
+                time2="00.00-24.00"
+              />
+           
             <div className="flex flex-col gap-1">
               {/* complaint */}
               <p className="text-sm max-w-[260px] ">
