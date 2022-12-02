@@ -1,14 +1,13 @@
 export interface OptionsProps {
-    abr?: string;
-    name?: string;
-    title?: string;
-    
+  abr?: string;
+  name?: string;
+  title?: string;
 }
 
 export interface Categoryprops {
-    name: string;
-    img: string;
-    numPlaces: string;
+  name: string;
+  img: string;
+  numPlaces: string;
 }
 
 export interface StoreProps {
@@ -22,12 +21,19 @@ export interface StoreProps {
   open?: boolean;
 }
 export interface RestaurantsProps {
-    name: string;
-    img: string;
-    min: string;
-    desc: string;
-    price: string;
-    rating?: string;
-    open?: boolean
+  name: string;
+  img: string;
+  min: string;
+  desc: string;
+  price: string;
+  rating?: string;
+  open?: boolean;
+}
 
+export interface ProductProps {
+  name: string;
+  desc?: string;
+  img?: string;
+  price: string;
+  menu?: string;
 }

@@ -85,7 +85,7 @@ const Stores = () => {
           </Swiper>
         </div>
       </section>
-      <section className="flex flex-col gap-4 w-full mb-10 px-4 md:px-10 max-w-[1600px]  m-auto">
+      <section className="flex flex-col gap-4 w-full mb-10 px-4 md:px-10 max-w-[1600px]  m-auto 2xl:px-0 2xl:pl-10">
         <div className="flex justify-between items-center">
           <h4 className="text-[1.75rem] font-semibold">All stores</h4>
         </div>

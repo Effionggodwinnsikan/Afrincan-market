@@ -53,13 +53,14 @@
   html,
   body {
     @apply font-omnes scroll-smooth;
-    overflow-x: hidden;
   }
 
-  .body {
+  body {
+    overflow-x: hidden;
+    position: relative;
     color: #202125;
     background-color: #fff;
-  
+    transition: 0.3s all;
   }
 
   .hero-img {
@@ -263,6 +264,12 @@
     transition: border 0.2s linear 0s;
   }
 
+  .text-overflow {
+overflow: hidden;
+    text-overflow: ellipsis;
+/* width: minmax(80px, 260px); */
+  }
+
   .select option {
     padding-inline-start: 0.875rem;
     padding: 0.75rem 0.875rem;
@@ -305,8 +312,8 @@
     right: 1rem;
     height: 1.2rem;
     width: 2.5rem;
-   
-/* filter: drop-shadow(rgba(0, 0, 0, 0.09) 0px 0px 2px) */
+
+    /* filter: drop-shadow(rgba(0, 0, 0, 0.09) 0px 0px 2px) */
     /* box-shadow: rgb(0 0 0 / 24%) 0px 0px 1px 0px,
       rgb(0 0 0 / 10%) 0px 0px 0.25rem 0px,
       rgb(0 0 0 / 12%) 0px 0.25rem 0.25rem 0px; */
@@ -315,6 +322,49 @@
     box-shadow: rgb(0 0 0 / 24%) 0px 0px 1px 0px,
       rgb(0 0 0 / 10%) 0px 0px 0.25rem 0px,
       rgb(0 0 0 / 12%) 0px 0.25rem 0.25rem 0px;
+  }
+}
+
+.sideMenu {
+position: relative;
+width: max-content;
+transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.sideMenu-active {
+position: relative;
+width: max-content;
+transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.sideMenu:hover.sideMenu::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  background-color: #202125;
+  bottom: -5px;
+  left: 0;
+  animation: activeMenu ease .5s;
+}
+.sideMenu-active::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  background-color: #202125;
+  bottom: -5px;
+  left: 0;
+
+  animation: activeMenu ease .5s;
+}
+
+@keyframes activeMenu {
+  0% {
+    width: 0;
+  }
+  100%{
+    width: 100%;
   }
 }
 
