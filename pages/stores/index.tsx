@@ -9,7 +9,7 @@ import EastIcon from "@mui/icons-material/East";
 import WestIcon from "@mui/icons-material/West";
 
 import { resCategories } from "../../data/restaurantsData";
-import { CategoryCard } from "../../components";
+import { CategoryCard, Helmet } from "../../components";
 import { StoreCard } from "../../components";
 import { stores } from "../../data/stores";
 import "swiper/css";
@@ -20,6 +20,7 @@ const Stores = () => {
 
   return (
     <div className="flex flex-col mt-10  w-full my-0 gap-10 min-h-screen ">
+      <Helmet title="Stores African market" desc="the african market web app" />
       <div className="flex justify-between items-center mb-4 px-4 md:px-10 max-w-[1600px] w-full m-auto">
         <h2 className="text-4xl md:text-5xl  font-bold">Stores near me</h2>
         <div className="flex items-center gap-3">
@@ -75,9 +76,10 @@ const Stores = () => {
               return (
                 <SwiperSlide key={id}>
                   <CategoryCard
-                    src={category.img}
-                    title={category.name}
-                    num={category.numPlaces}
+                    // src={category.img}
+                    // title={category.name}
+                    // num={category.numPlaces}
+                    {...category}
                   />
                 </SwiperSlide>
               );

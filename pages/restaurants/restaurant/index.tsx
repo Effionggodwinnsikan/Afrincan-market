@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useRef } from "react";
 import AltLayout from "../../../layout/AltLayout";
 import MopedOutlinedIcon from "@mui/icons-material/MopedOutlined";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { Button, Box, Tabs, Tab } from "@mui/material";
+import { Button } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import SearchInput from "../../../components/SearchInput";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
@@ -10,12 +10,8 @@ import { restaurantsProducts } from "../../../data/products";
 import { Link as Scroll } from "react-scroll";
 import { OpeningTab, ProductCard } from "../../../components";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 
-// interface MenuProps {
-//   [string]
-// }
 
 const Restaurant = () => {
   const menuSet = new Set(restaurantsProducts.map((item) => item.menu));
@@ -43,7 +39,7 @@ const Restaurant = () => {
 
   return (
     <>
-      <div className=" sticky top-0 left-0 z-10 ">
+      <div className=" relative top-0 left-0 z-10 ">
         <div
           className="hidden lg:flex w-full text-white min-h-[4.375rem] items-center  px-4 py-3 md:px-10 xl:px-0 border-b-0"
           ref={stickyRef}

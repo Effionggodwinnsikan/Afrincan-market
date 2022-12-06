@@ -7,7 +7,7 @@ interface CategoryCardProps {
   title: string;
   desc: string;
   min: string;
-  category?: string;
+  category: string[];
   open?: boolean;
 }
 
@@ -19,6 +19,7 @@ interface CategoryCardProps {
    open,
    category,
  }: CategoryCardProps) => {
+   const newcategory = category.shift();
    return (
      <Card
        elevation={1}
@@ -37,7 +38,7 @@ interface CategoryCardProps {
        <div className="relative">
          <CardMedia component="img" height="142" image={src} alt={title} />
          <div className="absolute bg-white p-1 rounded-lg top-3 left-3 text-xs">
-           {category}
+           {newcategory}
          </div>
          {!open && (
            <div className="absolute top-0 left-0 h-full w-full bg-lightdark flex items-center justify-center">

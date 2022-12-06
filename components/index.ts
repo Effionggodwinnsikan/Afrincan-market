@@ -11,3 +11,4 @@ export {default as StoreCard } from './cards/StoreCard'
 export { default as RestaurantCard } from "./cards/RestaurantCard";
 export { default as ProductCard } from "./cards/ProductCard";
 export { default as OpeningTab } from "./tabs/openingTab";
+export { default as Helmet } from "./Helmet";
