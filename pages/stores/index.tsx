@@ -96,12 +96,7 @@ const Stores = () => {
             return (
               <Grid item xs={12} key={id} sm={6} lg={4}>
                 <StoreCard
-                  title={store.name}
-                  src={store.img}
-                  desc={store.desc}
-                  min={store.min}
-                  open={store.open}
-                  category={store.category}
+                 {...store}
                 />
               </Grid>
             );

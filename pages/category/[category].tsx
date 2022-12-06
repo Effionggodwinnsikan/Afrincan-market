@@ -36,15 +36,11 @@ const RestaurantCategoryUi = () => {
       </div>
       <section className="flex flex-col gap-4 px-4 md:px-10 max-w-[1600px] w-full m-auto 2xl:px-0 2xl:pl-10">
         <Grid container spacing={2}>
-          {resturantsList.map((item, id) => {
+          {resturantsList.map((restaurant, id) => {
             return (
               <Grid item xs={12} key={id} sm={6} lg={4}>
                 <RestaurantCard
-                  title={item.name}
-                  src={item.img}
-                  desc={item.desc}
-                  min={item.min}
-                  isClosed={item.open}
+                 {...restaurant}
                 />
               </Grid>
             );

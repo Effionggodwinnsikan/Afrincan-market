@@ -4,10 +4,9 @@ interface HeadProps{
     title: string;
     desc: string
 }
-
+// This components consist of meta data and could be reusable across pages 
 const Helmet = ({ title, desc }: HeadProps) => {
-    // African market
-    // the african market web app
+   
   return (
     <Head>
           <title>{ title}</title>

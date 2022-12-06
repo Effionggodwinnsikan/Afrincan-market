@@ -91,15 +91,11 @@ const Restaurants = () => {
           <h4 className="text-[1.75rem] font-semibold">All restaurants</h4>
         </div>
         <Grid container spacing={2}>
-          {restaurants.map((item, id) => {
+          {restaurants.map((restaurant, id) => {
             return (
               <Grid item xs={12} key={id} sm={6} lg={4}>
                 <RestaurantCard
-                  title={item.name}
-                  src={item.img}
-                  desc={item.desc}
-                  min={item.min}
-                  isClosed={item.open}
+                 {...restaurant}
                 />
               </Grid>
             );
