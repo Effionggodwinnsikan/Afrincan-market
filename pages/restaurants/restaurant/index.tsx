@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef } from "react";
+import React, { ReactNode, useCallback, useEffect, useRef} from "react";
 import AltLayout from "../../../layout/AltLayout";
 import MopedOutlinedIcon from "@mui/icons-material/MopedOutlined";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
@@ -16,33 +16,42 @@ import "swiper/css";
 const Restaurant = () => {
   const menuSet = new Set(restaurantsProducts.map((item) => item.menu));
   const allMenu = Array.from(menuSet);
-
-
+   const ref = useRef<HTMLInputElement | null>(null);
   const imageUrl =
     "https://imageproxy.wolt.com/venue/5e8b3016a9c0943ec072a9d0/94a97d5a-8b52-11ec-8fe4-ae3fbf502e8c_chequers_joel_gueller___1_.jpg?w=600";
 
-  const stickyRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const selectRef = stickyRef.current;
+//   const handleScroll = useCallback(() => {
+//     console.log("scrolling");
+//     const div = ref.current
+    
+//      if (div) {
+//        div.style.backgroundColor = "#fff";
+//        div.className= "sticky"
+//      }
 
-  //   if (stickyRef.current !== null) {
-  //   stickyRef.current.focus();
-  // }
+    
 
-  //   function onScroll() {
-  //     selectRef.style.background = "#fff";
-  //     selectRef.style.color = "#202125";
-  //   }
-  //   selectRef.addEventListener("scroll", onScroll);
-  // }, [stickyRef]);
+//   }, []);
+
+//  useEffect(() => {
+//    const div = ref.current;
+//    if (div) {
+//      div.addEventListener("scroll", handleScroll);
+//    }
+//  }, [handleScroll]);
+
+
+  // useEffect(() => {    
+    
+  // }, []);
 
   return (
     <>
       <div className=" relative top-0 left-0 z-10 ">
         <div
           className="hidden lg:flex w-full text-white min-h-[4.375rem] items-center  px-4 py-3 md:px-10 xl:px-0 border-b-0"
-          ref={stickyRef}
+        id="sticky-div" ref={ref}
         >
           <div className="flex gap-28 items-center  w-full max-w-6.5xl  mx-auto my-0 ">
             <button className="flex items-center gap-3 border-0 outline-0 bg-none">

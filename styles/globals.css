@@ -368,5 +368,10 @@ transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
 
+.product-modal {
+max-height: min(62.5rem, 100vh - 24px);
+max-width: min(32.5rem, 90vw);
+}
+
 /* :-ms-input-placeholder */
 /* ::-webkit-input-placeholder */

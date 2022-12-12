@@ -6,17 +6,13 @@ import { Card} from "@mui/material";
 import Link from "next/link";
 
 
-interface StoreCardProps {
+interface CategoryCardProps {
   img: string;
   name: string;
   numPlaces: string;
 }
 
-const CategoryCard = (category: StoreCardProps) => {
-
-
-
-
+const CategoryCard = (category: CategoryCardProps) => {
   return (
     <Link href={`/category/${category.name}`} passHref>
       <Card

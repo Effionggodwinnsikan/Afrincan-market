@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 export const Colors = {
-  primary: "#EDCE00",
+  primary: "",
   primaryBtn: "#1FA9E4",
   herobg: "#cbe1ad",
   placeholder: "#B3B3B5",
@@ -12,7 +12,7 @@ export const Colors = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#1FA9E4",
+      main: "#F6B01E",
     },
   },
   typography: {
@@ -31,12 +31,13 @@ export const theme = createTheme({
       },
       styleOverrides: {
         containedPrimary: {
-          background: "#cdaa00 !important",
-          color: "#000",
+          background: "#F6B01E !important",
+          color: "#fff",
           fontWeight: 700,
 
           ":hover": {
-            background: "#9c8204 !important",
+            background: "#E4811C !important",
+            color: "#fff !important"
           },
         },
       },

@@ -2,16 +2,16 @@ import React from "react";
 import { Card, CardMedia, CardContent } from "@mui/material";
 
 
-interface CategoryCardProps {
+interface StoreCardProps {
   img: string;
   name: string;
   desc: string;
   min: string;
   category: string[];
-  open?: boolean;
+  open: boolean;
 }
 
- const StoreCard = (store: CategoryCardProps) => {
+ const StoreCard = (store: StoreCardProps) => {
    const newcategory = store.category.shift();
    return (
      <Card
@@ -29,11 +29,16 @@ interface CategoryCardProps {
        }}
      >
        <div className="relative">
-         <CardMedia component="img" height="142" image={store.img} alt={store.name} />
+         <CardMedia
+           component="img"
+           height="142"
+           image={store.img}
+           alt={store.name}
+         />
          <div className="absolute bg-white p-1 rounded-lg top-3 left-3 text-xs">
            {newcategory}
          </div>
-         {!open && (
+         {!store.open && (
            <div className="absolute top-0 left-0 h-full w-full bg-lightdark flex items-center justify-center">
              <p className="text-white text-xl font-semibold">Closed</p>
            </div>
@@ -42,7 +47,9 @@ interface CategoryCardProps {
        <CardContent>
          <div className="flex justify-between items-center md:gap-4 border-b-2 border-dashed border-[#F8F8F8] pb-3">
            <div className="flex flex-col">
-             <h4 className="font-semibold text-xl text-ellipsis">{store.name}</h4>
+             <h4 className="font-semibold text-xl text-ellipsis">
+               {store.name}
+             </h4>
              <p className="text-sm font-normal text-[#B3B3B5] max-h-[18px]  max-w-[220px] overflow-hidden text-ellipsis whitespace-nowrap">
                {store.desc} places
              </p>
