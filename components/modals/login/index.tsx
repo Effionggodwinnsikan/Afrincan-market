@@ -4,6 +4,7 @@ import Backdrop from "@mui/material/Backdrop";
 import React, { useState } from "react";
 import { TextInput } from "../../generalComponents/input";
 import ClearIcon from "@mui/icons-material/Clear";
+import Button from "@mui/material/Button";
 
 interface LoginProps {
   open: boolean;
@@ -58,12 +59,13 @@ export const Login: React.FC<LoginProps> = ({ open, onClose, onClick }) => {
                     {showPassword ? "Hide password" : "Show password"}
                   </button>
                 </div>
-                <button
-                  className="bg-primaryBtn border-0 outline-0 text-white text-base font-semibold rounded-lg py-[0.625rem] px-2"
+                <Button
+                  // className="bg-primaryBtn border-0 outline-0 text-white text-base font-semibold rounded-lg py-[0.625rem] px-2"
+                  sx={{width:"100%"}}
                   onClick={onClick}
                 >
                   Next
-                </button>
+                </Button>
               </form>
               {/* <p className=" text-xs">
               Please visit

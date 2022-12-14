@@ -6,6 +6,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { TextInput } from "../../generalComponents/input";
 // import { CheckBox, Select } from "../../generalComponents";
 import Link from "next/link";
+import Button from "@mui/material/Button";
 
 interface SignupProps {
   open: boolean;
@@ -96,12 +97,13 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
 
                 {/* <CheckBox name="privacy-agreement">aaaa</CheckBox> */}
                 {/* <Checkbox label={checkLabel} /> */}
-                <button
-                  className="bg-primaryBtn border-0 outline-0 text-white text-base font-semibold rounded-lg py-[0.625rem] px-2"
+                <Button
+                  // className="bg-primaryBtn border-0 outline-0 text-white text-base font-semibold rounded-lg py-[0.625rem] px-2"
+                  sx={{ width: "100%" }}
                   onClick={onClick}
                 >
-                  Continue
-                </button>
+                  Next
+                </Button>
               </form>
             </div>
           </div>

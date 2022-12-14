@@ -265,9 +265,9 @@
   }
 
   .text-overflow {
-overflow: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
-/* width: minmax(80px, 260px); */
+    /* width: minmax(80px, 260px); */
   }
 
   .select option {
@@ -326,15 +326,15 @@ overflow: hidden;
 }
 
 .sideMenu {
-position: relative;
-width: max-content;
-transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: relative;
+  width: max-content;
+  transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .sideMenu-active {
-position: relative;
-width: max-content;
-transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: relative;
+  width: max-content;
+  transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .sideMenu:hover.sideMenu::after {
@@ -345,7 +345,7 @@ transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   background-color: #202125;
   bottom: -5px;
   left: 0;
-  animation: activeMenu ease .5s;
+  animation: activeMenu ease 0.5s;
 }
 .sideMenu-active::after {
   content: "";
@@ -356,21 +356,24 @@ transition: width .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   bottom: -5px;
   left: 0;
 
-  animation: activeMenu ease .5s;
+  animation: activeMenu ease 0.5s;
 }
 
 @keyframes activeMenu {
   0% {
     width: 0;
   }
-  100%{
+  100% {
     width: 100%;
   }
 }
 
 .product-modal {
-max-height: min(62.5rem, 100vh - 24px);
-max-width: min(32.5rem, 90vw);
+     /* height: 100%; */
+     min-height: 420px;
+     max-height: calc(100vh-24px);
+  overflow-y: auto;
+  max-width: min(32.5rem, 90vw);
 }
 
 /* :-ms-input-placeholder */

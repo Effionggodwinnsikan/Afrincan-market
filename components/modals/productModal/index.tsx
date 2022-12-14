@@ -61,7 +61,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
         <Fade in={open}>
           <div className=" flex flex-col border-0 overflow-hidden rounded-xl absolute gap-6 left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]  w-full  z-10  bg-white  modalContent modal__content  md:rounded-2xl shadow-md product-modal">
             <div className="relative pt-[60%]  h-full flex flex-col gap-8">
-              <div className="absolute h-full right-4 top-2 z-10">
+              <div className="absolute  right-4 top-2 z-10">
                 {/* <div className="flex justify-end items-center w-full z-10 bg-white "> */}
                 <button
                   className="flex items-center justify-center bg-[#20212514] p-1 rounded-[50%] font-bold text-[32px] border-none outline-none cursor-pointer"

@@ -29,6 +29,7 @@ module.exports = {
         lightdark: "rgba(0, 0, 0, 0.5)",
         primary: "#F6B01E",
         tertiary: "#E4811C",
+        primaryLi: "#FDEFD2",
         // secondary: "",
       },
       backgroundImage: {
