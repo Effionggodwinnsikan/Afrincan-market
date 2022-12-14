@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Button, Fade, Modal, ButtonProps } from "@mui/material";
+import { Button, Fade, Modal } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import ClearIcon from "@mui/icons-material/Clear";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -101,7 +101,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
                     <AddIcon />
                   </CalcButton>
 
-                  {/* <button className="bg-white rounded-bl-full"></button> */}
+                  
                 </div>
                 <Button variant="contained" size="large" sx={{width:"100%!important", height:"3.2rem"}}>
                   <div className="flex justify-between items-center w-full">

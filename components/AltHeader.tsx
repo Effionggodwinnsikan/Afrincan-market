@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { Button } from "./generalComponents";
+import { Button } from "@mui/material";
 import { Login, Register } from "./modals";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -23,11 +23,8 @@ const AltHeader = () => {
 
   return (
     <>
-      <header
-        className="px-4 py-3 md:px-10 xl:px-0">
-        <div
-          className="flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0 gap-3"
-        >
+      <header className="px-4 py-3 md:px-10 xl:px-0">
+        <div className="flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0 gap-3">
           <Link href={"/"}>
             <p className="text-black font-bold text-xl ">African Market</p>
           </Link>
@@ -88,18 +85,16 @@ const AltHeader = () => {
           {/* BUTTONS */}
           <div className="hidden lg:flex gap-4 items-center">
             <Button
-              nobg
-              onClick={(e) => {
-                e.preventDefault();
+              variant="text"
+              onClick={() => {
                 setOpenLogin(!openLogin);
               }}
             >
               Log in
             </Button>
             <Button
-              bluebg
-              onClick={(e) => {
-                e.preventDefault();
+              variant="contained"
+              onClick={() => {
                 setOpenSignUp(!openSignUp);
               }}
             >

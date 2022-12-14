@@ -1,4 +1,4 @@
-import Head from "next/head";
+
 import React, { ReactNode } from "react";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";

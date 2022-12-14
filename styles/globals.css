@@ -375,6 +375,9 @@
   overflow-y: auto;
   max-width: min(32.5rem, 90vw);
 }
+.css-j204z7-MuiFormControlLabel-root {
+  margin: 0!important;
+}
 
 /* :-ms-input-placeholder */
 /* ::-webkit-input-placeholder */
