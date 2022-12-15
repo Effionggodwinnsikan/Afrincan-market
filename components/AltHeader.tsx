@@ -29,7 +29,7 @@ const AltHeader = () => {
           className="flex items-center justify-between w-full max-w-6.5xl  mx-auto my-0 gap-3"
         >
           <Link href={"/"}>
-            <p className="text-black font-bold text-xl italic">Wolt</p>
+            <p className="text-black font-bold text-xl ">African Market</p>
           </Link>
 
           {/* Searh bar */}

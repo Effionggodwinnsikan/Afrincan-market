@@ -40,11 +40,13 @@ const Header = () => {
           }
         >
           <Link href={"/"}>
-            <p className="text-black font-bold text-xl italic">Wolt</p>
+            <p className="text-black font-bold text-xl">
+              African Market
+            </p>
           </Link>
 
           {/* Searh bar */}
-          {router.pathname !== "/" && <SearchInput placeholder="Search..."/>}
+          {router.pathname !== "/" && <SearchInput placeholder="Search..." />}
 
           {/* MOBILE MENU */}
           <div className="pointer-events-[initial] flex items-center lg:hidden relative">

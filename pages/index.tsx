@@ -10,6 +10,7 @@ import { CountryList } from "../data/CountryList";
 import { Grid } from "@mui/material";
 import { homePartner } from "../data/homePartner";
 import Link from "next/link";
+import { Helmet } from "../components";
 
 export const CountryCard = styled(Card)`
   padding: 1rem 0.625rem;
@@ -23,15 +24,12 @@ export const CountryCard = styled(Card)`
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>African market</title>
-        <meta name="description" content="the african market web app" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Helmet title="African market" desc="the african market web app" />
+
       <main>
         {/* Hero */}
 
-        <section className="bg-herogreen flex min-h-screen  w-ful px-4  md:px-10 xl:px-0 overflow-hidden">
+        <section className="bg-herogreen flex h-[40rem]  w-ful px-4  md:px-10 xl:px-0 overflow-hidden">
           {/*Content  Container */}
 
           <div className="flex w-full min-h-full max-w-6.5xl items-center m-auto my-0    relative">
@@ -171,7 +169,7 @@ export default function Home() {
         </section>
 
         {/* Patners */}
-        
+
         <section className="flex flex-col px-4 py-20  pb-48 md:px-10 xl:px-0 min-h-screen max-w-6.5xl justify-center m-auto my-0 gap-10">
           <h1 className="text-2xl md:text-5xl font-bold text-center">
             Hungry for more than food?

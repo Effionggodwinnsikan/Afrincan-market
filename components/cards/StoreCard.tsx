@@ -3,22 +3,16 @@ import { Card, CardMedia, CardContent } from "@mui/material";
 
 
 interface CategoryCardProps {
-  src: string;
-  title: string;
+  img: string;
+  name: string;
   desc: string;
   min: string;
-  category?: string;
+  category: string[];
   open?: boolean;
 }
 
- const StoreCard = ({
-   src,
-   title,
-   desc,
-   min,
-   open,
-   category,
- }: CategoryCardProps) => {
+ const StoreCard = (store: CategoryCardProps) => {
+   const newcategory = store.category.shift();
    return (
      <Card
        elevation={1}
@@ -35,9 +29,9 @@ interface CategoryCardProps {
        }}
      >
        <div className="relative">
-         <CardMedia component="img" height="142" image={src} alt={title} />
+         <CardMedia component="img" height="142" image={store.img} alt={store.name} />
          <div className="absolute bg-white p-1 rounded-lg top-3 left-3 text-xs">
-           {category}
+           {newcategory}
          </div>
          {!open && (
            <div className="absolute top-0 left-0 h-full w-full bg-lightdark flex items-center justify-center">
@@ -48,13 +42,13 @@ interface CategoryCardProps {
        <CardContent>
          <div className="flex justify-between items-center md:gap-4 border-b-2 border-dashed border-[#F8F8F8] pb-3">
            <div className="flex flex-col">
-             <h4 className="font-semibold text-xl text-ellipsis">{title}</h4>
+             <h4 className="font-semibold text-xl text-ellipsis">{store.name}</h4>
              <p className="text-sm font-normal text-[#B3B3B5] max-h-[18px]  max-w-[220px] overflow-hidden text-ellipsis whitespace-nowrap">
-               {desc} places
+               {store.desc} places
              </p>
            </div>
            <div className="flex flex-col bg-[#EBF7FD] text-primaryBtn text-xs font-normal md:text-sm rounded-xl p-2 items-center">
-             {min}
+             {store.min}
              <span>min</span>
            </div>
          </div>

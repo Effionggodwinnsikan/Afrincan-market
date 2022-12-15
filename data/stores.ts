@@ -8,7 +8,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: true,
    },
    {
@@ -18,7 +18,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: true,
    },
    {
@@ -28,7 +28,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: true,
    },
    {
@@ -38,7 +38,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: true,
    },
    {
@@ -48,7 +48,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: true,
    },
    {
@@ -58,7 +58,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: true,
    },
    {
@@ -68,7 +68,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -78,7 +78,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -88,7 +88,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -98,7 +98,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -108,7 +108,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -118,7 +118,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -128,7 +128,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -138,7 +138,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["Grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -148,7 +148,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["Grocery", "salad", "pizza"],
      open: false,
    },
    {
@@ -158,7 +158,7 @@ import { StoreProps } from "../types";
      img: "https://imageproxy.wolt.com/venue/6299e4c5419bdbc25276fe14/1b139e7a-fd36-11ec-ae5a-92c9279cf2c8_san_gwann_banner.jpg?w=600",
      price: "0.35",
      rating: "price",
-     category: "Grocery",
+     category: ["grocery", "salad", "pizza"],
      open: false,
    },
  ];

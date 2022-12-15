@@ -2,42 +2,42 @@ import { Categoryprops, RestaurantsProps } from "../types";
 
 export const resCategories: Categoryprops[] = [
   {
-    name: "Burger",
+    name: "burger",
     img: "https://imageproxy.wolt.com/wolt-frontpage-images/categories/a69b5aea-c5a8-11ea-9f48-2e3b484a03e4_0b2c3eb5_ae95_4bff_9144_7f7c93ea74f9.jpg-md?w=300",
     numPlaces: "356",
   },
   {
-    name: "Salad",
+    name: "salad",
     img: "https://imageproxy.wolt.com/wolt-frontpage-images/categories/fd1d18e0-c5a8-11ea-8a78-822e244794a0_a1852dc9_4afb_4877_9659_793adcb0f87b.jpg-md?w=300",
     numPlaces: "358",
   },
   {
-    name: "Pizza",
+    name: "pizza",
     img: "https://imageproxy.wolt.com/wolt-frontpage-images/categories/53129366-c5a8-11ea-8a78-822e244794a0_52b897cd_ac18_4cb5_9921_2653f1d38650.jpg-md?w=300",
     numPlaces: "359",
   },
   {
-    name: "Pizza",
+    name: "pizza",
     img: "https://imageproxy.wolt.com/wolt-frontpage-images/categories/53129366-c5a8-11ea-8a78-822e244794a0_52b897cd_ac18_4cb5_9921_2653f1d38650.jpg-md?w=300",
     numPlaces: "359",
   },
   {
-    name: "Pizza",
+    name: "pizza",
     img: "https://imageproxy.wolt.com/wolt-frontpage-images/categories/53129366-c5a8-11ea-8a78-822e244794a0_52b897cd_ac18_4cb5_9921_2653f1d38650.jpg-md?w=300",
     numPlaces: "359",
   },
   {
-    name: "Pizza",
+    name: "pizza",
     img: "https://imageproxy.wolt.com/wolt-frontpage-images/categories/53129366-c5a8-11ea-8a78-822e244794a0_52b897cd_ac18_4cb5_9921_2653f1d38650.jpg-md?w=300",
     numPlaces: "359",
   },
   {
-    name: "Pizza",
+    name: "pizza",
     img: "https://imageproxy.wolt.com/wolt-frontpage-images/categories/53129366-c5a8-11ea-8a78-822e244794a0_52b897cd_ac18_4cb5_9921_2653f1d38650.jpg-md?w=300",
     numPlaces: "359",
   },
   {
-    name: "Pizza",
+    name: "pizza",
     img: "https://imageproxy.wolt.com/wolt-frontpage-images/categories/53129366-c5a8-11ea-8a78-822e244794a0_52b897cd_ac18_4cb5_9921_2653f1d38650.jpg-md?w=300",
     numPlaces: "359",
   },
@@ -54,6 +54,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -63,6 +64,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -72,6 +74,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -81,6 +84,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -90,6 +94,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -99,6 +104,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -108,6 +114,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -117,6 +124,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -126,6 +134,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: true,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -135,6 +144,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: false,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -144,6 +154,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: false,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -153,6 +164,7 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: false,
+    category: ["grocery", "salad", "pizza"],
   },
   {
     name: "Luke's Take Away",
@@ -162,5 +174,6 @@ export const restaurants: RestaurantsProps[] = [
     price: "0.35",
     rating: "price",
     open: false,
+    category: ["grocery", "salad", "pizza"],
   },
 ];
