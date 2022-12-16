@@ -1,7 +1,7 @@
 import React, { ReactNode, useRef, useState } from "react";
 import RootLayout from "../../layout/RootLayout";
 import TuneIcon from "@mui/icons-material/Tune";
-import { Grid } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperCore } from "swiper/types";
 import EastIcon from "@mui/icons-material/East";
@@ -97,8 +97,10 @@ const Restaurants = () => {
         </div>
       </section>
       <section className="flex flex-col gap-4 px-4 md:px-10 max-w-[1600px] w-full m-auto 2xl:px-0 2xl:pl-10">
-        <div className="flex justify-between items-center">
+        <div className=" justify-between items-center">
           <h4 className="text-[1.75rem] font-semibold">All restaurants</h4>
+          <Divider  />
+         
         </div>
         <Grid container spacing={2}>
           {restaurants.map((restaurant, id) => {

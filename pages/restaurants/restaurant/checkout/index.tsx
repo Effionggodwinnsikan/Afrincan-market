@@ -280,13 +280,13 @@ const RestaurantCheckout = () => {
                   <p className="text-sm font-semibold lg:text-base">
                     Item subtotal (1 item)
                   </p>
-                  <span className="text-sm font-semibold lg:text-base">
+                  <span className="text-sm text-primary bg-primary/20 py-1 px-2  rounded-md font-semibold lg:text-base">
                     $10.50
                   </span>
                 </li>
                 <li className="flex justify-between items-center">
                   <p className="text-sm font-semibold lg:text-base">Delivery</p>
-                  <span className="text-sm font-semibold lg:text-base">
+                  <span className="text-sm text-primary bg-primary/20 py-1 px-2  rounded-md font-semibold lg:text-base">
                     $10.50
                   </span>
                 </li>
@@ -294,7 +294,7 @@ const RestaurantCheckout = () => {
                   <p className="text-sm font-semibold lg:text-base">
                     Service fee
                   </p>
-                  <span className="text-sm font-semibold lg:text-base">
+                  <span className="text-sm text-primary bg-primary/20 py-1 px-2  rounded-md font-semibold lg:text-base">
                     $10.50
                   </span>
                 </li>
@@ -303,7 +303,7 @@ const RestaurantCheckout = () => {
                 <p className="text-sm font-semibold lg:text-base">
                   Tip the courier
                 </p>
-                <span className="text-sm font-semibold lg:text-base">
+                <span className="text-sm text-primary bg-primary/20 py-1 px-2  rounded-md font-semibold lg:text-base">
                   $10.50
                 </span>
               </div>

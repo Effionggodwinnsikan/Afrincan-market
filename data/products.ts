@@ -6,7 +6,7 @@ export const restaurantsProducts: ProductProps[] = [
     desc: "Choose 3 pizzas of your choice for only €30!",
     price: "30.00",
     menu: "WOLT SPECIALS",
-    img: "https://imageproxy.wolt.com/menu/menu-images/5e8b32023db6b2ab6ab25963/8c6c4d5c-93cc-11ec-94af-fe7edde053b7_some_2947.jpeg",
+    img: "/assets/images/hero2.jpg",
   },
   {
     name: "Margherita",
@@ -20,7 +20,7 @@ export const restaurantsProducts: ProductProps[] = [
     desc: "100% Mozzarella cheese, tomato sauce and oregano",
     price: "14.90",
     menu: "PIZZA",
-    img: "https://imageproxy.wolt.com/menu/menu-images/97a21476-78a4-11ea-bbe9-0a586464750f_Meat_Feast.jpeg",
+    img: "/assets/images/hero1.jpg",
   },
   {
     name: "Funghi & Ham",
@@ -34,7 +34,7 @@ export const restaurantsProducts: ProductProps[] = [
     desc: "100% Mozzarella cheese, tomato sauce, fresh mushroom and oregano",
     price: "12.00",
     menu: "PIZZA",
-    img: "https://imageproxy.wolt.com/menu/menu-images/76763e6c-78a4-11ea-95e3-0a586462853b_Funghi.jpeg",
+    img: "/assets/images/hero3.jpg",
   },
   {
     name: "Meat Lovers",

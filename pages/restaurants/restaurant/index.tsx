@@ -17,8 +17,7 @@ const Restaurant = () => {
   const menuSet = new Set(restaurantsProducts.map((item) => item.menu));
   const allMenu = Array.from(menuSet);
    const ref = useRef<HTMLInputElement | null>(null);
-  const imageUrl =
-    "https://imageproxy.wolt.com/venue/5e8b3016a9c0943ec072a9d0/94a97d5a-8b52-11ec-8fe4-ae3fbf502e8c_chequers_joel_gueller___1_.jpg?w=600";
+  const imageUrl ='/assets/images/hero2.jpg'
 
 
 //   const handleScroll = useCallback(() => {
@@ -51,7 +50,8 @@ const Restaurant = () => {
       <div className=" relative top-0 left-0 z-10 ">
         <div
           className="hidden lg:flex w-full text-white min-h-[4.375rem] items-center  px-4 py-3 md:px-10 xl:px-0 border-b-0"
-        id="sticky-div" ref={ref}
+          id="sticky-div"
+          ref={ref}
         >
           <div className="flex gap-28 items-center  w-full max-w-6.5xl  mx-auto my-0 ">
             <button className="flex items-center gap-3 border-0 outline-0 bg-none">
@@ -86,8 +86,8 @@ const Restaurant = () => {
             className="w-full h-full object-cover object-center"
           />
         </div>
-        <div className="  flex flex-col gap-10 px-4 py-3 md:px-10 xl:px-0 w-full max-w-6.5xl  mx-auto my-0  text-white  justify-center">
-          <div className="flex flex-col">
+        <div className="  flex bg-white/20  drop-shadow-md flex-col gap-10 px-4 py-3 md:px-10 xl:px-10 w-full max-w-3xl  shadow-md rounded-tr-md rounded-br-md my-0  text-white  justify-center">
+          <div className="flex flex-col drop-shadow-md">
             {/*  Retaurant title */}
             <h2 className="font-bold text-[2.5rem] md:text-[2.75rem] lg:text-[3.5rem] leading-[120%] md:leading-[140%]">
               Chequers Creperie
@@ -97,15 +97,15 @@ const Restaurant = () => {
               Delicate savoury and original sweet crepes, and now even pizzeria!
             </p>
           </div>
-          <div className="flex items-center rounded-lg bg-white p-2 text-maintxt w-[max-content] text-[0.625rem]">
+          <div className="flex items-center rounded-lg bg-white p-2 text-primary font-medium w-[max-content] text-[0.625rem]">
             MIN. ORDER: €10.00
           </div>
         </div>
       </div>
       <section className=" px-4 md:px-[1.875rem] lg:py-4 xl:px-0 w-full mt-5 lg:mt-[-5vh]">
-        <div className="lg:bg-white  my-0 flex flex-col gap-4 lg:shadow py-8 max-w-[1200px] lg:flex-row lg:justify-between lg:px-[1.875rem] w-full lg:m-auto lg:rounded-lg lg:border lg:border-[#2021251f]">
+        <div className="lg:bg-white ml-auto  my-0 flex flex-col gap-4 lg:shadow py-8 max-w-[1200px] lg:flex-row lg:justify-between lg:px-[1.875rem] w-full lg:m-auto lg:rounded-lg lg:border lg:border-[#2021251f]">
           {/* Rating */}
-          <div className="flex justify-between gap-4">
+          <div className="flex justify-between gap-4 ">
             <div className="flex items-center gap-3">
               <p className="flex items-center text-xs font-normal lg:text-lg lg:font-bold lg:hidden gap-2">
                 Excellent,
@@ -179,7 +179,7 @@ const Restaurant = () => {
             return (
               <SwiperSlide
                 key={id}
-                className="overflow-hidden h-[20px] text-overflow w-[max-content]"
+                className="overflow-hidden py-1 border-primary border  rounded-md  text-overflow w-[max-content]"
               >
                 <Scroll
                   to={`${menu}`}
@@ -187,7 +187,8 @@ const Restaurant = () => {
                   smooth={true}
                   // offset={10}
                   duration={200}
-                  className="text-sm font-semibold cursor-pointer w-full whitespace-nowrap text-overflow"
+                  activeClass='bg-primary text-white'
+                  className="text-sm px-3 py-20   bg-primary/20   font-semibold cursor-pointer w-full whitespace-nowrap text-overflow"
                 >
                   {menu}
                 </Scroll>
@@ -209,7 +210,7 @@ const Restaurant = () => {
                   to={`${menu}`}
                   spy={true}
                   smooth={true}
-                  activeClass="text-sm font-semibold cursor-pointer sideMenu-active"
+                  activeClass="text-sm font-semibold cursor-pointer sideMenu-active text-primary"
                   // offset={10}
                   duration={200}
                   className="text-sm font-semibold cursor-pointer sideMenu"
@@ -278,7 +279,10 @@ const Restaurant = () => {
             </p>
             <div className="flex justify-between items-center">
               <p className="text-sm font-semibold">Phone Number</p>
-              <a href="tel" className="text-sm font-semibold text-[#1FA9E4]">
+              <a
+                href="tel"
+                className="text-sm font-semibold text-primary px-2 py-1 rounded bg-primary/20"
+              >
                 +35627222882
               </a>
             </div>
@@ -287,15 +291,15 @@ const Restaurant = () => {
           {/* Opening times */}
           <div className="hidden lg:flex flex-col gap-3">
             <h4 className="text-lg font-semibold">Opening times</h4>
-            
-              <OpeningTab
-                label1='Resturant'
-                label2="Delivery"
-                days="Monday-Sunday"
-                time1="00.00–24.00"
-                time2="00.00-24.00"
-              />
-           
+
+            <OpeningTab
+              label1="Resturant"
+              label2="Delivery"
+              days="Monday-Sunday"
+              time1="00.00–24.00"
+              time2="00.00-24.00"
+            />
+
             <div className="flex flex-col gap-1">
               {/* complaint */}
               <p className="text-sm max-w-[260px] ">
@@ -304,7 +308,10 @@ const Restaurant = () => {
                 food-specific information upon request.
               </p>
             </div>
-            <a href="tel" className="text-sm font-semibold text-[#1FA9E4]">
+            <a
+              href="tel"
+              className="text-sm font-semibold text-primary px-2 py-1 rounded bg-primary/20 w-fit"
+            >
               +35627222882
             </a>
             <Button
@@ -324,7 +331,7 @@ const Restaurant = () => {
           <div className="hidden lg:flex flex-col gap-3">
             <h4 className="text-lg font-semibold">Categories</h4>
 
-            <p className="text-base font-semibold text-[#1FA9E4]">
+            <p className="text-base font-semibold text-primary">
               Crepe, Dessert, Pizza, Sweets, Italian
             </p>
           </div>
