@@ -9,13 +9,13 @@ const Restaurantstab = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="fixed z-10  md:z-1 md:mt-10 left-0 bottom-0 bg-[#fff] md:relative  flex w-full   justify-center ">
-        <div className="flex center w-max-content border-t-2 md:border-t-0 md:border-b border-[#F4F4F4] border-solid md:px-10">
+        <div className="flex center bg-gray-300  rounded-lg w-max-content border-t-2 md:border-t-0 md:border-b border-[#F4F4F4] border-solid ">
           <Link
             href="/restaurants"
             className={
               router.pathname == "/restaurants"
-                ? "border-t-2 md:border-t-0 md:border-b border-primary"
-                : ""
+                ? "bg-white shadow-md rounded-md w-full"
+                : "hover:bg-gray-400 transition-all rounded-md"
             }
           >
             <Button
@@ -33,8 +33,8 @@ const Restaurantstab = ({ children }: { children: ReactNode }) => {
             href="/stores"
             className={
               router.pathname == "/stores"
-                ? "border-t-2 md:border-t-0 md:border-b border-primary"
-                : ""
+                ? "bg-white shadow-md px-5 rounded-md w-full"
+                : " px-5 hover:bg-gray-400 transition-all rounded-md"
             }
           >
             <Button

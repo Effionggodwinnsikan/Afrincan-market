@@ -19,8 +19,8 @@ const ProductCard = (product: ProductProps) => {
         <div className="flex justify-between gap-5 border border-solid border-[transparent]  border-b-[#e4e4e4] py-6 hover:border-transparent">
           <div className="flex flex-col gap-6 ">
             <h4 className="text-sm lg:text-lg font-semibold">{product.name}</h4>
-            <p className="text-xs lg:text-sm">{product.desc}</p>
-            <span className="text-sm text-[#1FA9E4] lg:text-base font-semibold">
+            <p className="text-xs lg:text-sm text-[#979797] font-medium">{product.desc}</p>
+            <span className="text-sm text-primary bg-primary/10 w-fit rounded  p-1 lg:text-base font-semibold">
               {product.price}
             </span>
           </div>

@@ -39,16 +39,16 @@ const RestaurantCard = (restaurant: CategoryCardProps) => {
         )}
       </div>
       <CardContent>
-        <div className="flex justify-between items-center md:gap-4 border-b-2 border-dashed border-[#F8F8F8] pb-3">
+        <div className="flex justify-between relative items-center md:gap-4 border-b-2 border-dashed border-[#F8F8F8] pb-3">
           <div className="flex flex-col">
             <h4 className="font-semibold text-xl text-ellipsis">
               {restaurant.name}
             </h4>
-            <p className="text-sm font-normal texe-[#B3B3B5] text-ellipsis">
+            <p className="text-sm font-normal text-[#B3B3B5] text-ellipsis">
               {restaurant.desc} places
             </p>
           </div>
-          <div className="flex flex-col bg-[#EBF7FD] text-primaryBtn text-xs font-normal md:text-sm rounded-xl p-2 items-center">
+          <div className="shadow-md rounded-md absolute bg-white -top-10 -right-3 text-primary font-medium px-4 py-2 ">
             {restaurant.min}
             <span>min</span>
           </div>

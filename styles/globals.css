@@ -335,6 +335,7 @@
   position: relative;
   width: max-content;
   transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
 }
 
 .sideMenu:hover.sideMenu::after {
@@ -342,7 +343,7 @@
   height: 2px;
   width: 100%;
   position: absolute;
-  background-color: #202125;
+  background-color: #f6b01e;
   bottom: -5px;
   left: 0;
   animation: activeMenu ease 0.5s;
@@ -352,7 +353,7 @@
   height: 2px;
   width: 100%;
   position: absolute;
-  background-color: #202125;
+  background-color: #f6b01e;
   bottom: -5px;
   left: 0;
 
