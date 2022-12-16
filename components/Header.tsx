@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { Button } from "./generalComponents";
+import { Button } from "@mui/material";
 import { Login, Register } from "./modals";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -9,11 +9,10 @@ import SearchInput from "./SearchInput";
 import { useRouter } from "next/router";
 
 const Header = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [openSignUp, setOpenSignUp] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [tooltip, setTooltip] = useState(false);
-  
 
   const handleTooltip = (e: any) => {
     e.preventDefault();
@@ -21,7 +20,6 @@ const Header = () => {
   };
   const closeLogin = () => setOpenLogin(!openLogin);
   const closeSignUp = () => setOpenSignUp(!openSignUp);
-
 
   return (
     <>
@@ -40,9 +38,7 @@ const Header = () => {
           }
         >
           <Link href={"/"}>
-            <p className="text-black font-bold text-xl">
-              African Market
-            </p>
+            <p className="text-black font-bold text-xl">African Market</p>
           </Link>
 
           {/* Searh bar */}
@@ -101,18 +97,16 @@ const Header = () => {
           {/* BUTTONS */}
           <div className="hidden lg:flex gap-4 items-center">
             <Button
-              nobg
-              onClick={(e) => {
-                e.preventDefault();
+              variant="text"
+              onClick={() => {
                 setOpenLogin(!openLogin);
               }}
             >
               Log in
             </Button>
             <Button
-              bluebg
-              onClick={(e) => {
-                e.preventDefault();
+              variant="contained"
+              onClick={() => {
                 setOpenSignUp(!openSignUp);
               }}
             >
@@ -127,4 +121,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;

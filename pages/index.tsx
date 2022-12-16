@@ -1,8 +1,7 @@
-import Head from "next/head";
+
 import React, { ReactNode } from "react";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-
 import RootLayout from "../layout/RootLayout";
 import { Card } from "@mui/material";
 import { styled } from "@mui/system";
@@ -11,6 +10,11 @@ import { Grid } from "@mui/material";
 import { homePartner } from "../data/homePartner";
 import Link from "next/link";
 import { Helmet } from "../components";
+import Button from "@mui/material/Button";
+import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
 
 export const CountryCard = styled(Card)`
   padding: 1rem 0.625rem;
@@ -20,6 +24,8 @@ export const CountryCard = styled(Card)`
   justify-content: space-between;
   width: 100%;
 `;
+
+
 
 export default function Home() {
   return (
@@ -51,23 +57,36 @@ export default function Home() {
                   Delivery address
                 </h3>
                 <div className="flex gap-4">
-                  <div className="flex flex-col relative w-full search__container ">
-                    <FmdGoodOutlinedIcon className="absolute left-4 top-3.5 stroke-1 stroke-#202125 search-icon" />
-                    <input
-                      type="text"
-                      className="bg-white search__input  text-inputTxt font-normal text-medium w-full"
-                      id="search-location "
-                    />
-                    <label
-                      htmlFor="search-location"
-                      className="text-medium font-normal search__label absolute text-placeholder"
+                  <div className="w-full">
+                  
+                    <FormControl
+                      sx={{ width: "100%", borderWidth: "2px" }}
+                      variant="outlined"
                     >
-                      Choose delivery address
-                    </label>
+                      <InputLabel
+                        htmlFor="search-address"
+                        sx={{ paddingInlineStart: "2rem" }}
+                      >
+                        Choose delivery address
+                      </InputLabel>
+                      <OutlinedInput
+                        id="search-address"
+                        
+                        endAdornment={
+                          <InputAdornment position="start">
+                            <FmdGoodOutlinedIcon className="absolute left-4 top-3.5 stroke-1 stroke-#202125 search-icon" />
+                          </InputAdornment>
+                        }
+                        label="Choose delivery address"
+                        sx={{
+                          paddingInlineStart: "2rem",
+                          backgroundColor: "#fff",
+                        }}
+                      />
+                    </FormControl>
                   </div>
-                  <button className="bg-primaryBtn border-0 outline-0 text-white font-semibold rounded-lg py-[0.4rem] px-2  ">
-                    Search
-                  </button>
+
+                  <Button variant="contained">Search</Button>
                 </div>
               </div>
             </div>
