@@ -18,7 +18,7 @@ export interface StoreProps {
   price: string;
   rating?: string;
   category: string[];
-  open?: boolean;
+  open: boolean;
 
 }
 export interface RestaurantsProps {
