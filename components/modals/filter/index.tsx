@@ -128,7 +128,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                             btnClicked
                               ? "bg-primary"
                               : "bg-[#f6b11e]  bg-opacity-40"
-                          } font-semibold cursor-pointer capitalize transition-[background-color]`}
+                          } font-semibold cursor-pointer capitalize transition-[background-color] border-2 border-primary`}
                           // onClick={() => setBtnClicked(!btnClicked)}
                         >
                           {name}
@@ -148,24 +148,9 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                       e: React.ChangeEvent<HTMLInputElement>
                     ) {
                       setBtnClicked(!btnClicked);
-                      // if (btnClicked)
-                      //   setFilterItems([...filterItems, e.target.value]);
-
                       setSort(e.target.value);
-                      //  if (filterItems.includes(e.target.value)) {
-                      //    //  const test = filterItems.filter(
-                      //    //    (item) => item !== e.target.value
-                      //    // );
-                      //    // console.log(test)
-
-                      //    setFilterItems(
-                      //      filterItems.filter((item) => item !== e.target.value)
-                      //    );
-                      //  } else {
-                      //    setFilterItems([...filterItems, e.target.value]);
-                      //  }
                     }
-                    // #FAD78E;
+                   
                     return (
                       <div key={idx}>
                         <input
@@ -178,7 +163,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                           checked={btnClicked}
                         />
                         <label
-                          htmlFor="sort_modal"
+                          htmlFor={sort}
                           className={`h-[2rem] flex items-center justify-center w-full max-w-[min-content] text-[0.875rem] px-[0.75rem] rounded-2xl  ${
                             btnClicked
                               ? "text-primary border-primary "

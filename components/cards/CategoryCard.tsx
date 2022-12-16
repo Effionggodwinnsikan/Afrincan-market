@@ -16,16 +16,20 @@ const CategoryCard = (category: CategoryCardProps) => {
   return (
     <Link href={`/category/${category.name}`} passHref>
       <Card
-        elevation={3}
+        // elevation={3}
         // variant="string"
         sx={{
-          backgroundColor: "#fff",
+          backgroundColor: "transparent!important",
+          background: "none!important",
           cursor: "pointer",
           transition: "scale 0.3s ease-in-out",
           borderRadius: "8px",
-          boxShadow: "1px 5px 5px rgba(0, 0, 0, 0.1)",
+          boxShadow: "none!important",
+         
+         
 
           "&:hover": {
+            boxShadow: "1px 5px 5px rgba(0, 0, 0, 0.1)!important",
             transform: "scale(1.03)",
             transition: "all 0.3s ease-in-out",
             position: "relative",
@@ -39,10 +43,10 @@ const CategoryCard = (category: CategoryCardProps) => {
         <img
           src={category.img}
           alt={category.name}
-          className="object-contain  w-full "
+          className="object-cover  w-full h-[120px] md:h-[160px] object-center"
         />
 
-        <div className="p-4">
+        <div className="px-4 py-2">
           <h4 className="font-semibold  text-base md:text-lg capitalize">
             {category.name}
           </h4>

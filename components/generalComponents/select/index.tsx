@@ -8,11 +8,11 @@ interface SelectProps {
   name?: string;
   id?: string;
   label?: string;
-  onChange?: (e) => void;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   dataTestID?: string;
   options: OptionsProps[];
-    disabled?: boolean;
-    width?: string;
+  disabled?: boolean;
+  width?: string;
 }
 
 

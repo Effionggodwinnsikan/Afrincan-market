@@ -17,7 +17,7 @@ export const theme = createTheme({
   },
   typography: {
     allVariants: {
-      fontFamily: "omnes, san-serif",
+      fontFamily: "Hind, sans-serif",
     },
   },
   components: {
@@ -37,7 +37,7 @@ export const theme = createTheme({
 
           ":hover": {
             background: "#E4811C !important",
-            color: "#fff !important"
+            color: "#fff !important",
           },
         },
       },

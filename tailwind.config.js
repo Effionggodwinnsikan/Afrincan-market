@@ -16,7 +16,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        omnes: ["omnes", "san-serif"],
+        omnes: ["Hind", " sans-serif"],
       },
       colors: {
         herogreen: "#cbe1ad",

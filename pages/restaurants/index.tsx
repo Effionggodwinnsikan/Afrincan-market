@@ -32,25 +32,31 @@ const Restaurants = () => {
           <p className="hidden md:flex md:text-base text-primary font-medium">
             Sorted by Recommended
           </p>
-          <div className="rounded-[100%] bg-primaryLi p-2 cursor-pointer " onClick={handleFilter}>
+          <div
+            className="rounded-[100%] bg-primaryLi p-2 cursor-pointer "
+            onClick={handleFilter}
+          >
             <TuneIcon className="text-primary" />
           </div>
         </div>
       </div>
       {/* categories */}
 
-      <section className="flex flex-col gap-4 max-w-[1600px]  w-full m-auto overflow-x-hidden">
+      <section className="flex flex-col gap-4 max-w-[1600px]  w-full m-auto overflow-x-hidden ">
         <div className="flex justify-between items-center px-4 md:px-10 ">
           <h4 className="text-[1.75rem] font-semibold">Categories</h4>
-          <div className="flex items-center gap-2">
+        </div>
+
+        <div className="flex w-full  ml-4 md:ml-10  relative rounded-xl border-2 bg-white shadow-xl   pl-3 md:pl-6 py-4  min-h-[220px] md:h-full ">
+          <div className="flex justify-between items-center gap-2 absolute top-[35%] left-0 px-3 md:pl-4 pr-10 z-10 w-full">
             <button
-              className="rounded-[100%] p-2 bg-[#D6EFFA] text-primaryBtn"
+              className="rounded-[100%] p-2 bg-white  border shadow-2xl text-primary"
               onClick={() => swiperRef.current?.slidePrev()}
             >
               <WestIcon />
             </button>
             <button
-              className="rounded-[100%] p-2 bg-[#D6EFFA] text-primaryBtn"
+              className="rounded-[100%] p-2  bg-white border shadow-2xl text-primary"
               onClick={() => swiperRef.current?.slideNext()}
             >
               <EastIcon />
@@ -61,8 +67,6 @@ const Restaurants = () => {
               categories={resCategories}
             />
           </div>
-        </div>
-        <div className="flex w-full  pl-4 md:pl-10 h-[220px] md:h-full md:min-h-[310px]">
           <Swiper
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
