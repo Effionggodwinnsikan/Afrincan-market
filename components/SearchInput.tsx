@@ -35,7 +35,7 @@ const SearchInput = ({placeholder, store}:SearchProps) => {
           fontSize="medium"
         />
       </div>
-      <Button>search</Button>
+      
     </div>
   );
 };

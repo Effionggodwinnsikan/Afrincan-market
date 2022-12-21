@@ -28,6 +28,7 @@ export const CountryCard = styled(Card)`
 
 
 export default function Home() {
+
   return (
     <div>
       <Helmet title="African market" desc="the african market web app" />
