@@ -27,15 +27,16 @@ const SearchUI = () => {
         desc="the african market web app"
       />
       <div className="flex justify-between items-center mb-4 px-4 md:px-10 max-w-[1600px] w-full m-auto">
-        <h2 className="text-4xl md:text-5xl font-bold capitalize">
-           Search results
-        </h2>
+        <h2 className="text-4xl md:text-5xl font-bold">Search results</h2>
         <div className="flex items-center gap-3">
-          <p className="hidden md:flex md:text-base text-primaryBtn font-medium">
+          <p className="hidden md:flex md:text-base text-primary font-medium">
             Sorted by Recommended
           </p>
-          <div className="rounded-[100%] bg-lightblue p-2 cursor-pointer">
-            <TuneIcon className="text-primaryBtn" />
+          <div
+            className="rounded-[100%] bg-primaryLi p-2 cursor-pointer "
+            // onClick={handleFilter}
+          >
+            <TuneIcon className="text-primary" />
           </div>
         </div>
       </div>
