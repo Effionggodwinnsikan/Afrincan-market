@@ -3,19 +3,20 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import InputAdornment from "@mui/material/InputAdornment";
+
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Button } from "@mui/material";
 import { allPlaces } from "../data/allPlaces";
 import { SearchPlaceCard } from "./cards/SearchPlace";
 import ClickAwayListener from "@mui/base/ClickAwayListener";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 const SearchBar = () => {
   const [searchHistory, setSearchHistory] = useState<string[]>([]); // List of previously searched words
   const [openPrev, setOpenPrev] = useState(false); //Opens list of previously searched words
   const [search, setSearch] = useState("");
   const [openPlaces, setOpenPlaces] = useState(false);
-  
+  const [openClearIcon, setOpenClearIcon] = useState(false);
 
   const router = useRouter();
   const places = allPlaces.filter(
@@ -33,14 +34,13 @@ const SearchBar = () => {
     setOpenPlaces(false);
   }
 
-  console.log(openPrev)
+  // console.log(openPrev)
   // Search
 
   function handleFocus() {
-
     if (searchHistory.length >= 1) {
       setOpenPrev(true);
-    } 
+    }
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -49,13 +49,22 @@ const SearchBar = () => {
     if (places.length >= 1) {
       setOpenPlaces(true);
       setOpenPrev(false);
+      setOpenClearIcon(true);
     }
-
-    if (!value) setOpenPlaces(false);
+    if (value) setOpenClearIcon(true);
+    if (!value) {
+      setOpenPlaces(false);
+      setOpenClearIcon(false);
+    }
     if (!value && searchHistory.length >= 1) setOpenPrev(true);
     if (!value && searchHistory.length < 1) setOpenPrev(false);
 
     setSearch(value);
+  }
+
+  function handleClear() {
+    setSearch("");
+    setOpenClearIcon(false);
   }
 
   function handleSubmit(e: React.SyntheticEvent) {
@@ -79,53 +88,55 @@ const SearchBar = () => {
     }
   }
 
- useEffect(() => {
-  function getHistory() {
-     if (typeof window !== "undefined") {
-     const preSearch = localStorage.getItem("recent-search-history") || "";
+  useEffect(() => {
+    function getHistory() {
+      if (typeof window !== "undefined") {
+        const preSearch = localStorage.getItem("recent-search-history") || "";
 
-    //  if (preSearch.length >= 1) {
-       setSearchHistory(JSON.parse(preSearch));
-    //  }
-   }
-   return
-  }
-  getHistory()
- }, []);
+        //  if (preSearch.length >= 1) {
+        setSearchHistory(JSON.parse(preSearch));
+        //  }
+      }
+      return;
+    }
+    getHistory();
+  }, []);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex gap-4">
-        <div className="relative w-full max-w-[16.25rem]">
-          <FormControl
-            sx={{
-              width: "100%",
-              borderWidth: "2px",
-            }}
-            variant="outlined"
-          >
-            <OutlinedInput
-              id="search"
-              startAdornment={
-                <InputAdornment position="start">
-                  <SearchOutlinedIcon fontSize="medium" />
-                </InputAdornment>
-              }
-              placeholder="Search...."
+    <>
+      <form onSubmit={handleSubmit}>
+        <div className="flex gap-4">
+          <div className="relative w-full max-w-[16.25rem]">
+            <FormControl
               sx={{
-                borderRadius: "0.375rem",
-                backgroundColor: "#DBDBDC",
-                height: "3rem",
+                width: "100%",
+                borderWidth: "2px",
               }}
-              autoComplete="off"
-              value={search}
-              onChange={handleChange}
-              onFocus={handleFocus}
-            />
-          </FormControl>
-        </div>
-        <Button type="submit">search</Button>
-        <ClickAwayListener onClickAway={closePrev}>
+              variant="outlined"
+            >
+              <OutlinedInput
+                id="search"
+                startAdornment={<SearchOutlinedIcon fontSize="medium" />}
+                endAdornment={
+                  openClearIcon && (
+                    <CancelIcon onClick={handleClear} fontSize="small" />
+                  )
+                }
+                placeholder="Search...."
+                sx={{
+                  borderRadius: "0.375rem",
+                  backgroundColor: "#DBDBDC",
+                  height: "3rem",
+                }}
+                autoComplete="off"
+                value={search}
+                onChange={handleChange}
+                onFocus={handleFocus}
+              />
+            </FormControl>
+          </div>
+          <Button type="submit">search</Button>
+
           <div>
             {openPrev && (
               <div className="bg-white flex flex-col max-w-[500px] w-full rounded-lg border shadow absolute left-0 right-0 top-[4.25rem] m-auto z-10 py-3 max-h-[calc(95vh-70px)] overflow-y-auto transition">
@@ -155,29 +166,35 @@ const SearchBar = () => {
               </div>
             )}
           </div>
-        </ClickAwayListener>
 
-        <ClickAwayListener onClickAway={closePlaces}>
-          <div>
-            {openPlaces && (
-              <div className="bg-white flex flex-col max-w-[600px] w-full rounded-lg border shadow absolute left-0 right-0 top-[4.25rem] m-auto z-100 py-3 max-h-[calc(95vh-70px)] overflow-y-auto transition">
-                {places.length >= 1 ? (
-                  places.map((place, idx) => {
-                    return <SearchPlaceCard {...place} key={idx} />;
-                  })
-                ) : (
-                  <div className="flex items-center justify-center">
-                    <p className="text-base md:text-lg font-medium">
-                      Nothing came up with that search 😕
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </ClickAwayListener>
-      </div>
-    </form>
+          <ClickAwayListener onClickAway={closePlaces}>
+            <div>
+              {openPlaces && (
+                <div className="bg-white flex flex-col max-w-[600px] w-full rounded-lg border shadow absolute left-0 right-0 top-[4.25rem] m-auto z-100 py-3 max-h-[calc(95vh-70px)] overflow-y-auto transition">
+                  {places.length >= 1 ? (
+                    places.map((place, idx) => {
+                      return <SearchPlaceCard {...place} key={idx} />;
+                    })
+                  ) : (
+                    <div className="flex items-center justify-center">
+                      <p className="text-base md:text-lg font-medium">
+                        Nothing came up with that search 😕
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </ClickAwayListener>
+        </div>
+      </form>
+      {openPrev && (
+        <div
+          className="fixed top-0 left-0 w-full h-screen "
+          onClick={closePrev}
+        ></div>
+      )}
+    </>
   );
 };
 
