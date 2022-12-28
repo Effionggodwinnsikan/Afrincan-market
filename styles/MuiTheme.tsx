@@ -28,12 +28,14 @@ export const theme = createTheme({
         size: "large",
         color: "primary",
         variant: "contained",
+
       },
       styleOverrides: {
         containedPrimary: {
           background: "#F6B01E !important",
           color: "#fff",
           fontWeight: 700,
+          textTransform: "none",
 
           ":hover": {
             background: "#E4811C !important",

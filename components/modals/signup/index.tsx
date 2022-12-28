@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Fade, Modal } from "@mui/material";
-import Backdrop from "@mui/material/Backdrop";
 import ClearIcon from "@mui/icons-material/Clear";
 import Link from "next/link";
 import Button from "@mui/material/Button";
@@ -8,6 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
+import ModalContainer from "../../ModalContainer";
 
 interface SignupProps {
   open: boolean;
@@ -25,17 +24,13 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
 
   return (
     <>
-      <Modal
+      <ModalContainer
         open={open}
         onClose={onClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
       >
-        <Fade in={open}>
-          <div className="flex flex-col border-0  rounded-xl p-4 absolute gap-6 left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[31.25rem] z-10 w-full bg-white  modalContent modal__content  md:rounded-2xl ">
+      
+        
+          <div className="flex flex-col border-0  rounded-xl p-4 gap-6 max-w-[31.25rem] z-10 w-full bg-white  modalContent modal__content  md:rounded-2xl ">
             <div className="relative h-full">
               <div className="flex justify-end items-center w-full z-10 bg-white ">
                 <button
@@ -195,8 +190,8 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
               </form>
             </div>
           </div>
-        </Fade>
-      </Modal>
+     
+      </ModalContainer>
     </>
   );
 };

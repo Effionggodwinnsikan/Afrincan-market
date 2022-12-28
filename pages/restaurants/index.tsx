@@ -7,16 +7,18 @@ import { Swiper as SwiperCore } from "swiper/types";
 import EastIcon from "@mui/icons-material/East";
 import WestIcon from "@mui/icons-material/West";
 
+
 import { resCategories, restaurants } from "../../data/restaurantsData";
 import { CategoryCard, FilterModal, Helmet } from "../../components";
 import { RestaurantCard } from "../../components";
-import "swiper/css";
-import "swiper/css/navigation";
+
 import Restaurantstab from "../../components/tabs/RestaurantsTab";
+import CategoriesSlider from "../../components/CategoriesSlider";
 
 const Restaurants = () => {
   const swiperRef = useRef<SwiperCore>();
   const [openFilter, setOpenFilter] = useState(false);
+  // const categories= resCategories
   
   const handleFilter = () => setOpenFilter(!openFilter)
 
@@ -46,8 +48,14 @@ const Restaurants = () => {
         <div className="flex justify-between items-center px-4 md:px-10 ">
           <h4 className="text-[1.75rem] font-semibold">Categories</h4>
         </div>
+        <CategoriesSlider categories={resCategories} />
+        <FilterModal
+          open={openFilter}
+          onClose={handleFilter}
+          categories={resCategories}
+        />
 
-        <div className="flex w-full  ml-4 md:ml-10  relative rounded-xl border-2 bg-white shadow-xl   pl-3 md:pl-6 py-4  min-h-[220px] md:h-full ">
+        {/* <div className="flex w-full  ml-4 md:ml-10  relative rounded-xl border-2 bg-white shadow-xl   pl-3 md:pl-6 py-4  min-h-[220px] md:h-full ">
           <div className="flex justify-between items-center gap-2 absolute top-[35%] left-0 px-3 md:pl-4 pr-10 z-10 w-full">
             <button
               className="rounded-[100%] p-2 bg-white  border shadow-2xl text-primary"
@@ -94,13 +102,12 @@ const Restaurants = () => {
               );
             })}
           </Swiper>
-        </div>
+        </div> */}
       </section>
       <section className="flex flex-col gap-4 px-4 md:px-10 max-w-[1600px] w-full m-auto 2xl:px-0 2xl:pl-10">
         <div className=" justify-between items-center">
           <h4 className="text-[1.75rem] font-semibold">All restaurants</h4>
-          <Divider  />
-         
+          <Divider />
         </div>
         <Grid container spacing={2}>
           {restaurants.map((restaurant, id) => {

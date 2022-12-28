@@ -24,6 +24,7 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
+
       <title>African Market</title>
       <meta
         name="description"

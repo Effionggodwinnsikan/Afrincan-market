@@ -39,3 +39,15 @@ export interface ProductProps {
   price: string;
   menu?: string;
 }
+
+export interface AllPlaceProps {
+  name: string;
+  img: string;
+  min: string;
+  desc: string;
+  price: string;
+  rating?: string;
+  open: boolean;
+  category: string[];
+  type: string
+}
