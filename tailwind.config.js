@@ -63,6 +63,29 @@ module.exports = {
       right: {
         800: "800px",
       },
+      animation: {
+        modal: "0.5s  forwards modal",
+      },
+
+      keyframes: {
+        modal: {
+          "0%": {
+            width: 0,
+            height: 0,
+            overflow: "hidden",
+            opacity: 0,
+            left: "100vh",
+            // borderRadius: "50%",
+          },
+          "100%": {
+            width: 100,
+            height: 100,
+            overflow: "hidden",
+            opacity: 1,
+           
+          },
+        },
+      },
     },
   },
   plugins: [],

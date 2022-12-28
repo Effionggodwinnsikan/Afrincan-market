@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import FormControl from "@mui/material/FormControl";
@@ -15,18 +15,9 @@ const SearchBar = () => {
   const [openPrev, setOpenPrev] = useState(false); //Opens list of previously searched words
   const [search, setSearch] = useState("");
   const [openPlaces, setOpenPlaces] = useState(false);
+  
+
   const router = useRouter();
-
-
-
-  function closePrev() {
-    setOpenPrev(false);
-  }
-  function closePlaces() {
-    setOpenPlaces(false);
-  }
-
-  // Search
   const places = allPlaces.filter(
     (place) =>
       place.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -35,10 +26,21 @@ const SearchBar = () => {
       place.type.includes(search.toLowerCase())
   );
 
-  function handlePrevs() {
+  function closePrev() {
+    setOpenPrev(false);
+  }
+  function closePlaces() {
+    setOpenPlaces(false);
+  }
+
+  console.log(openPrev)
+  // Search
+
+  function handleFocus() {
+
     if (searchHistory.length >= 1) {
       setOpenPrev(true);
-    }
+    } 
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -49,10 +51,9 @@ const SearchBar = () => {
       setOpenPrev(false);
     }
 
-    if (!value) {
-      setOpenPrev(true);
-      setOpenPlaces(false);
-    }
+    if (!value) setOpenPlaces(false);
+    if (!value && searchHistory.length >= 1) setOpenPrev(true);
+    if (!value && searchHistory.length < 1) setOpenPrev(false);
 
     setSearch(value);
   }
@@ -60,7 +61,6 @@ const SearchBar = () => {
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     setSearchHistory([...searchHistory, search]);
-   
 
     setSearch("");
     localStorage.setItem(
@@ -68,7 +68,7 @@ const SearchBar = () => {
       JSON.stringify(searchHistory)
     );
     setOpenPlaces(false);
-    router.push(`/search/${search}`);
+    if (search) router.push(`/search/${search}`);
   }
 
   function handClearBtn() {
@@ -79,17 +79,19 @@ const SearchBar = () => {
     }
   }
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const preSearch = localStorage.getItem("recent-search-history") || "";
+ useEffect(() => {
+  function getHistory() {
+     if (typeof window !== "undefined") {
+     const preSearch = localStorage.getItem("recent-search-history") || "";
 
-      if (preSearch.length >= 1) {
-        setSearchHistory(JSON.parse(preSearch));
-      }
-
-      // console.log(searchHistory);
-    }
-  }, []);
+    //  if (preSearch.length >= 1) {
+       setSearchHistory(JSON.parse(preSearch));
+    //  }
+   }
+   return
+  }
+  getHistory()
+ }, []);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -115,15 +117,14 @@ const SearchBar = () => {
                 backgroundColor: "#DBDBDC",
                 height: "3rem",
               }}
-              onFocus={handlePrevs}
               autoComplete="off"
               value={search}
               onChange={handleChange}
+              onFocus={handleFocus}
             />
           </FormControl>
         </div>
         <Button type="submit">search</Button>
-
         <ClickAwayListener onClickAway={closePrev}>
           <div>
             {openPrev && (
