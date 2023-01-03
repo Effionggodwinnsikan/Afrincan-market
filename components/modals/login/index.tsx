@@ -6,6 +6,7 @@ import { TextInput } from "../../generalComponents/input";
 import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
 
+
 interface LoginProps {
   open: boolean;
   onClose?: () => void;
@@ -14,6 +15,9 @@ interface LoginProps {
 
 export const Login: React.FC<LoginProps> = ({ open, onClose, onClick }) => {
   const [showPassword, setShowPassword] = useState(false);
+
+
+
 
 
 

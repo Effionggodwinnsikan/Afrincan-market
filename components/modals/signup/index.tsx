@@ -8,6 +8,7 @@ import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
+import { postSignUp } from "../../../hooks/mutations";
 
 interface SignupProps {
   open: boolean;
@@ -17,11 +18,34 @@ interface SignupProps {
 
 export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
   const [openOptions, setOpenOptions] = useState(false);
+  const [username, setUsername] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+  const [verifyPwd, setVerifyPwd] = useState<string>("")
+  const {mutate, isError, error} = postSignUp()
 
-  function handlefirstName(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleUserName(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.value.length >= 1) setOpenOptions(true);
     else if (e.target.value.length === 0) setOpenOptions(false);
+
+    setUsername(e.target.value)
   }
+
+
+  function handleSubmit() {
+    if (password != verifyPwd) {
+      console.log("passowrd does not match")
+    }
+    if (isError) console.log(error)
+    
+ mutate({
+      email,
+      username,
+      password
+ })
+  }
+
+
 
   return (
     <>
@@ -49,35 +73,37 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
             <h2 className="text-2xl text-maintxt font-semibold">
               Create an account
             </h2>
+            {/* {postSignUp.isError && <div>{postSignUp.error.message}</div>} */}
+        
             <div className="flex flex-col gap-4">
-              <form action="" className="flex flex-col gap-4">
+              <form action="" className="flex flex-col gap-4" onSubmit={handleSubmit}>
                 <div className="flex flex-col md:flex-row gap-4 md:items-center">
                   <FormControl
                     sx={{ width: "100%", borderWidth: "2px" }}
                     variant="outlined"
                   >
-                    <InputLabel htmlFor="First-name">First name</InputLabel>
+                    <InputLabel htmlFor="First-name">User Name</InputLabel>
                     <OutlinedInput
                       id="First-name"
-                      onChange={handlefirstName}
+                      onChange={handleUserName}
                       label="First name"
-                      sx={{
-                        paddingInlineStart: "2rem",
-                        backgroundColor: "#fff",
-                      }}
+                      // sx={{
+                      //   paddingInlineStart: "2rem",
+                      //   backgroundColor: "#fff",
+                      // }}
                     />
                   </FormControl>
-                  <FormControl
+                  {/* <FormControl
                     sx={{ width: "100%", borderWidth: "2px" }}
                     variant="outlined"
                   >
                     <InputLabel htmlFor="Last-name">Last name</InputLabel>
                     <OutlinedInput
                       id="Last-name"
-                      // onChange={handlefirstName}
+                     
                       endAdornment={
                         <InputAdornment position="start">
-                          {/* <FmdGoodOutlinedIcon className="absolute left-4 top-3.5 stroke-1 stroke-#202125 search-icon" /> */}
+                         
                         </InputAdornment>
                       }
                       label="Last name"
@@ -85,7 +111,7 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
                         backgroundColor: "#fff",
                       }}
                     />
-                  </FormControl>
+                  </FormControl> */}
                 </div>
 
                 <FormControl
@@ -96,7 +122,7 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
                   <OutlinedInput
                     id="Email"
                     type="email"
-                    // onChange={handlefirstName}
+                    onChange={(e)=> setEmail(e.target.value)}
 
                     label="Email"
                     sx={{
@@ -114,11 +140,9 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
                   <OutlinedInput
                     id="password"
                     type="password"
-                    // onChange={handlefirstName}
+                    onChange={(e)=> setPassword(e.target.value)}
                     endAdornment={
-                      <InputAdornment position="start">
-                       
-                      </InputAdornment>
+                      <InputAdornment position="start"></InputAdornment>
                     }
                     label="Password"
                     sx={{
@@ -130,17 +154,15 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
                   sx={{ width: "100%", borderWidth: "2px" }}
                   variant="outlined"
                 >
-                  <InputLabel htmlFor="veridy-password">
+                  <InputLabel htmlFor="verify-password">
                     Verify password
                   </InputLabel>
                   <OutlinedInput
                     id="verify-password"
                     type="password"
-                    // onChange={handlefirstName}
+                    onChange={(e)=> setVerifyPwd(e.target.value)}
                     endAdornment={
-                      <InputAdornment position="start">
-                      
-                      </InputAdornment>
+                      <InputAdornment position="start"></InputAdornment>
                     }
                     label="Verify password"
                     sx={{
@@ -148,17 +170,17 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
                     }}
                   />
                 </FormControl>
-               
+
                 {openOptions && (
                   <>
                     <div className="flex gap-4">
                       <input
                         type="checkbox"
                         name=""
-                        id=""
+                        id="agreement-terms"
                         className="border-primaryBtn border-2 outline-none w-[1.5rem] h-[1.5rem]"
                       />
-                      <label htmlFor="">
+                      <label htmlFor="agreement-terms">
                         I've read and agree with the User Terms of Service. I
                         understand that my personal data will be processed in
                         accordance with Wolt’s Privacy Statement.
@@ -172,10 +194,10 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
                       <input
                         type="checkbox"
                         name=""
-                        id=""
+                        id="agreement-data"
                         className="border-primaryBtn border-2 outline-none w-[1.5rem] h-[1.5rem]"
                       />
-                      <label htmlFor="">
+                      <label htmlFor="agreement-data">
                         Wolt can transfer my personal data that Wolt has
                         collected and processed to countries outside Azerbaijan.
                       </label>
@@ -188,7 +210,7 @@ export const Register: React.FC<SignupProps> = ({ open, onClose, onClick }) => {
                 <Button
                   // className="bg-primaryBtn border-0 outline-0 text-white text-base font-semibold rounded-lg py-[0.625rem] px-2"
                   sx={{ width: "100%" }}
-                  onClick={onClick}
+                  onClick={handleSubmit}
                 >
                   Next
                 </Button>

@@ -39,3 +39,15 @@ export interface ProductProps {
   price: string;
   menu?: string;
 }
+
+
+export interface SignupProps {
+  email: string;
+  username: string;
+  password: string;
+}
+
+export interface LoginProps {
+  email: string;
+  password: string;
+}
