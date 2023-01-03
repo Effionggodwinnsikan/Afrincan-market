@@ -12,7 +12,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       <Header />
       
       {children}
-      <div className="flex justify-center p-3 items-center bg-white rounded-[100%] fixed bottom-10 right-4 border border-primary z-100 cursor-pointer " onClick={()=> Scroll.scrollToTop()}>
+      <div className="flex justify-center p-3 items-center bg-white rounded-[100%] fixed bottom-10 right-4 border border-primary z-[999] cursor-pointer " onClick={() => Scroll.scrollToTop()}>
         <KeyboardArrowUpIcon/>
       </div>
       <Footer />

@@ -51,3 +51,16 @@ export interface LoginProps {
   email: string;
   password: string;
 }
+
+
+export interface AllPlaceProps {
+  name: string;
+  img: string;
+  min: string;
+  desc: string;
+  price: string;
+  rating?: string;
+  open: boolean;
+  category: string[];
+  type: string
+}

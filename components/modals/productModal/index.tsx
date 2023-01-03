@@ -1,11 +1,12 @@
-import React, {useState} from "react";
-import { Button, Fade, Modal } from "@mui/material";
-import Backdrop from "@mui/material/Backdrop";
+import React from "react";
+import { Button } from "@mui/material";
+
 import ClearIcon from "@mui/icons-material/Clear";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from '@mui/icons-material/Add';
 import { ProductProps } from "../../../types";
 import { styled } from "@mui/material/styles";
+import ModalContainer from "../../ModalContainer";
 
 const CalcButton = styled(Button)({
   backgroundColor: "#fff !important",
@@ -49,17 +50,12 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
 
   return (
     <>
-      <Modal
+      <ModalContainer
         open={open}
         onClose={onClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 1000,
-        }}
       >
-        <Fade in={open}>
-          <div className=" flex flex-col border-0 overflow-hidden rounded-xl absolute gap-6 left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]  w-full  z-10  bg-white  modalContent modal__content  md:rounded-2xl shadow-md product-modal">
+        
+          <div className=" flex flex-col border-0 overflow-auto rounded-xl  gap-6 w-full  z-10  bg-white  modalContent modal__content  md:rounded-2xl shadow-md product-modal">
             <div className="relative pt-[60%]  h-full flex flex-col gap-8">
               <div className="absolute  right-4 top-2 z-10">
                 {/* <div className="flex justify-end items-center w-full z-10 bg-white "> */}
@@ -112,8 +108,8 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
               </div>
             </div>
           </div>
-        </Fade>
-      </Modal>
+    
+      </ModalContainer>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Header, Footer, AltHeader } from "../components";
+import { Footer, AltHeader } from "../components";
 
 const AltLayout = ({ children }: { children: ReactNode }) => {
   return (

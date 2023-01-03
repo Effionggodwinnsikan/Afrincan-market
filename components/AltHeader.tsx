@@ -5,8 +5,9 @@ import { Login, Register } from "./modals";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import SearchInput from "./SearchInput";
+
 import { useRouter } from "next/router";
+import SearchBar from "./SearchBar";
 
 const AltHeader = () => {
   const router = useRouter();
@@ -30,7 +31,7 @@ const AltHeader = () => {
           </Link>
 
           {/* Searh bar */}
-          {router.pathname !== "/" && <SearchInput placeholder="Search..." />}
+          {router.pathname !== "/" && <SearchBar/>}
 
           {/* MOBILE MENU */}
           <div className="pointer-events-[initial] flex items-center lg:hidden relative">

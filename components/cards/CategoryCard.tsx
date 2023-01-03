@@ -16,17 +16,18 @@ const CategoryCard = (category: CategoryCardProps) => {
   return (
     <Link href={`/category/${category.name}`} passHref>
       <Card
+      // className="w-full flex flex-col "
         // elevation={3}
         // variant="string"
         sx={{
-          backgroundColor: "transparent!important",
-          background: "none!important",
+          // backgroundColor: "transparent!important",
+          // background: "none!important",
           cursor: "pointer",
           transition: "scale 0.3s ease-in-out",
           borderRadius: "8px",
           boxShadow: "none!important",
-         
-         
+          maxHeight: "180px!important",
+          height:"100%!important",
 
           "&:hover": {
             boxShadow: "1px 5px 5px rgba(0, 0, 0, 0.1)!important",
@@ -40,11 +41,13 @@ const CategoryCard = (category: CategoryCardProps) => {
           },
         }}
       >
-        <img
-          src={category.img}
-          alt={category.name}
-          className="object-cover  w-full h-[120px] md:h-[160px] object-center"
-        />
+        <div className="relative h-[120px] w-full object-cover">
+          <img
+            src={category.img}
+            alt={category.name}
+            className="object-cover  h-full absolute right-0 top-0 left-0 w-full "
+          />
+        </div>
 
         <div className="px-4 py-2">
           <h4 className="font-semibold  text-base md:text-lg capitalize">
