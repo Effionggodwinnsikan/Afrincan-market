@@ -64,3 +64,11 @@ export interface AllPlaceProps {
   category: string[];
   type: string
 }
+
+export interface CartItemProps {
+  id?: string;
+  name: string;
+  img: string;
+  price: number;
+  quantity: number;
+}

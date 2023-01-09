@@ -3,14 +3,11 @@ import { Button } from "@mui/material";
 
 import ClearIcon from "@mui/icons-material/Clear";
 import RemoveIcon from "@mui/icons-material/Remove";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import { ProductProps } from "../../../types";
 import { styled } from "@mui/material/styles";
 import ModalContainer from "../../ModalContainer";
-import { Store } from "../../../utils/store";
-
-
-
+import { Store } from "../../../context/store";
 
 const CalcButton = styled(Button)({
   backgroundColor: "#fff !important",
@@ -22,53 +19,46 @@ const CalcButton = styled(Button)({
   height: "1.5rem",
   cursor: "pointer",
 
-  "&:disabled":{
-    backgroundColor: "transparent!important"
-  }
-
+  "&:disabled": {
+    backgroundColor: "transparent!important",
+  },
 
   // "&.disabled": {
   //  backgroundColor: "transaprent",
   // }
 });
 
-
-
 interface ProductDetailProps {
   open: boolean;
   onClose?: () => void;
   // onClick?: () => void;
-  product:ProductProps
+  product: ProductProps;
 }
-
 
 export const ProductDetail: React.FC<ProductDetailProps> = ({
   open,
   onClose,
   // onClick,
-  product
+  product,
 }) => {
-
-  const [quantity, setQuantity] = useState<number>(1)
-  const { state, dispatch } = useContext(Store)
-  const {cart} = state
+  const [quantity, setQuantity] = useState<number>(1);
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
 
   //increase qunatity
   function increaseQty() {
-    setQuantity((qty)=> qty + 1 )
+    setQuantity((qty) => qty + 1);
   }
 
   // reduce quantity
   function reduceQty() {
-    if (quantity === 1) return
-    setQuantity((qty) => qty - 1)
+    if (quantity === 1) return;
+    setQuantity((qty) => qty - 1);
   }
 
   function addToCart() {
     const existItem = cart.find((x) => x.name === product.name);
-    const newQuantity = existItem
-      ? (existItem.quantity = quantity)
-      : quantity;
+    const newQuantity = existItem ? (existItem.quantity = quantity) : quantity;
     const newProduct = {
       // id: product.id,
       name: product.name,
@@ -76,26 +66,21 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
       price: product.price,
       quantity: newQuantity,
     };
-       dispatch({
-         type: "ADD_TO_CART",
-         payload: {
-           ...newProduct,
-         },
-       });
-    
-    
-    console.log(cart)
-    // const product = 
-    
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        ...newProduct,
+      },
+    });
+
+    console.log(cart);
+    // const product =
   }
- 
-
-
 
   return (
     <>
       <ModalContainer open={open} onClose={onClose}>
-        <div className=" flex flex-col border-0 overflow-auto rounded-xl  gap-6 w-full  z-10  bg-white  modalContent modal__content  md:rounded-2xl shadow-md product-modal">
+        <div className=" flex flex-col border-0 overflow-auto rounded-xl  gap-6 w-full relative  z-10  bg-white  modalContent modal__content  md:rounded-2xl shadow-md product-modal">
           <div className="relative pt-[65%]  h-full flex flex-col gap-8">
             <div className="absolute  right-4 top-2 z-10">
               {/* <div className="flex justify-end items-center w-full z-10 bg-white "> */}
@@ -159,5 +144,3 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
     </>
   );
 };
-
-

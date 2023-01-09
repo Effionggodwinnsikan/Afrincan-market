@@ -10,11 +10,10 @@ import { useRouter } from "next/router";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CartModal from "./modals/cart";
-import { Store } from "../utils/store"
+import { Store } from "../context/store";
 import { useSnackbar } from "notistack";
 import { useMutation } from "react-query";
 import { LogoutUser } from "../hooks/mutations";
-
 
 const Header = () => {
   const router = useRouter();
@@ -26,14 +25,10 @@ const Header = () => {
   const { state, dispatch, totalItems } = useContext(Store);
   const { cart, user } = state;
 
-
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
-
-  
   const { mutate, isError, error } = useMutation(LogoutUser, {
     onSuccess: () => {
-    
       localStorage.removeItem("userInfo");
       enqueueSnackbar("Logged out successfully ", {
         variant: "success",
@@ -42,16 +37,10 @@ const Header = () => {
         type: "LOGOUT_USER",
       });
 
-
       // if (router.pathname === "/") router.push("/restaurants");
       // setOpen(!open);
     },
   });
-
-
-
-
- 
 
   const handleTooltip = (e: any) => {
     e.preventDefault();
@@ -61,18 +50,14 @@ const Header = () => {
   const handleSignUp = () => setOpenSignUp(!openSignUp);
   const handleCart = () => setOpenCart(!openCart);
 
-
   function handleLogout() {
-   
-    const refresh = user.tokens.refresh
-   
-    closeSnackbar()
+    const refresh = user.tokens.refresh;
 
-    mutate(
-      { refresh }
-    )
+    closeSnackbar();
 
-    if(isError) console.log(error)
+    mutate({ refresh });
+
+    if (isError) console.log(error);
   }
 
   return (

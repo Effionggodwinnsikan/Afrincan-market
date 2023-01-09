@@ -1,12 +1,7 @@
-import React, {ReactChild, ReactElement, ReactNode, createContext,useEffect, useReducer, useState } from "react";
+import React, { ReactElement, createContext, useReducer} from "react";
+import { CartItemProps } from "../types";
 
-interface CartItemProps {
-  id?: string;
-  name: string;
-  img: string;
-  price: number;
-  quantity: number;
-}
+
 
 interface InitialStateProps {
     cart: CartItemProps[];
@@ -36,13 +31,15 @@ const initialState: InitialStateProps = {
 interface ContextProps {
   state: InitialStateProps;
   dispatch: React.Dispatch<any>;
-  totalItems?: number;
+  totalItems: number;
+  totalPrice: number;
 }
 
 export const Store = createContext<ContextProps>({
     state: initialState,
     dispatch: () => null,
     totalItems: 0,
+    totalPrice: 0,
     
 })
 
@@ -62,7 +59,7 @@ const reducer =(state: InitialStateProps, {type, payload}: ActionProps) =>{
             )
           : [...state.cart, { name, img, price, quantity }];
 
-        const filteredItems = state.cart.filter((item) => item.name != name);
+        // const filteredItems = state.cart.filter((item) => item.name != name);
 
         // const qty:number = existItem ? existItem.qty + 1 : 1
         localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -94,11 +91,14 @@ type ChildrenType = {children?: ReactElement | ReactElement[]}
 
 export function StoreProvider({ children }: ChildrenType) {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const totalItems = state.cart.reduce((prev, cartItem) => {
-        return prev + cartItem.quantity;
+    const totalItems = state.cart.reduce((prev, item) => {
+        return prev + item.quantity;
     }, 0)
+  const totalPrice = state.cart.reduce((prev, item) => {
+    return prev + (item.price * item.quantity)
+  }, 0)
 
-  const value = { state, dispatch, totalItems };
+  const value = { state, dispatch, totalItems, totalPrice };
 
 
   return <Store.Provider value={value}>{children}</Store.Provider>;

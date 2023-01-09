@@ -300,6 +300,7 @@
   .modal__content {
     max-height: min(50rem, 100vh - 24px);
     overflow-y: auto;
+    position: relative!important;
     /* color:#20212533; */
   }
 

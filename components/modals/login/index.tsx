@@ -11,10 +11,9 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import { useSnackbar } from "notistack";
 import { useMutation } from "react-query";
-import { useForm, Controller, } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { LoginUser } from "../../../hooks/mutations";
-import { Store } from "../../../utils/store";
-
+import { Store } from "../../../context/store";
 
 interface LoginProps {
   open: boolean;
@@ -46,62 +45,52 @@ interface FormProps {
 //   password: ""
 // }
 
-
 export const Login: React.FC<LoginProps> = ({ open, onClose, setOpen }) => {
   const [showPassword, setShowPassword] = useState(false);
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-  const router = useRouter()
-  const { dispatch } = useContext(Store)
- 
+  const router = useRouter();
+  const { dispatch } = useContext(Store);
+
   const {
     handleSubmit,
     control,
     formState: { errors },
-   
   } = useForm<FormProps>();
-  const { mutate, isError, error } = useMutation(  LoginUser, {
+  const { mutate, isError, error } = useMutation(LoginUser, {
     onSuccess: (data) => {
       console.log(data);
-       dispatch({ type: "USER_LOGIN", payload: data });
-      localStorage.setItem("userInfo", JSON.stringify(data))
-      enqueueSnackbar(
-        "Logged in successfully ",
-        {
-          variant: "success",
-        }
-      );
+      dispatch({ type: "USER_LOGIN", payload: data });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      enqueueSnackbar("Logged in successfully ", {
+        variant: "success",
+      });
 
-      if (router.pathname === "/") router.push('/restaurants')
+      if (router.pathname === "/") router.push("/restaurants");
 
-      setOpen(!open)
+      setOpen(!open);
     },
   });
 
   function submitForm({ email, password }: FormProps) {
-
-    closeSnackbar()
-     //  @ts-ignore
+    closeSnackbar();
+    //  @ts-ignore
     if (isError && error.response.status === 401) {
       console.log(error);
       //  @ts-ignore
       enqueueSnackbar(`${error.response.data.detail}`, { variant: "error" });
       return;
-    }
-    else {
+    } else {
       mutate({
         email,
         password,
-
       });
     }
-    console.log(error)
-
+    console.log(error);
   }
 
   // useEffect(() => {
   //  reset()
   // }, [reset])
-  
 
   return (
     <>
@@ -123,7 +112,8 @@ export const Login: React.FC<LoginProps> = ({ open, onClose, setOpen }) => {
           <div className="flex flex-col gap-4">
             <form
               onSubmit={handleSubmit(submitForm)}
-              className="flex flex-col gap-4">
+              className="flex flex-col gap-4"
+            >
               <Controller
                 name="email"
                 defaultValue=""
@@ -155,7 +145,7 @@ export const Login: React.FC<LoginProps> = ({ open, onClose, setOpen }) => {
                   control={control}
                   defaultValue=""
                   rules={{
-                    required: true, 
+                    required: true,
                     minLength: 6,
                   }}
                   render={({ field }) => (
