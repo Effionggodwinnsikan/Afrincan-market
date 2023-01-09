@@ -6,6 +6,8 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import Head from "next/head";
 import {QueryClient, QueryClientProvider } from "react-query";
+import { SnackbarProvider } from 'notistack'
+import { StoreProvider } from "../utils/store";
 
 export default function App({ Component, pageProps }) {
 
@@ -28,49 +30,58 @@ export default function App({ Component, pageProps }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <Head>
-          <title>African Market</title>
-          <meta name="description" content="African Market WebApp" />
-          <link
-            rel="preload"
-            href="/fonts/OmnesBold.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/OmnesBlack.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/OmnesExtraLight.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/OmnesLight.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/OmnesRegular.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/OmnesSemiboldRegular.ttf"
-            as="font"
-            crossOrigin=""
-          />
-        </Head>
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <SnackbarProvider
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            >
+              <StoreProvider>   
+            <Head>
+              <title>African Market</title>
+              <meta name="description" content="African Market WebApp" />
+              <link
+                rel="preload"
+                href="/fonts/OmnesBold.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesBlack.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesExtraLight.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesLight.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesRegular.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesSemiboldRegular.ttf"
+                as="font"
+                crossOrigin=""
+              />
+            </Head>
+            {getLayout(<Component {...pageProps} />)}
+        </StoreProvider>
+          </SnackbarProvider>
+        </ThemeProvider>
     </QueryClientProvider>
   );
 }

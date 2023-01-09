@@ -1,19 +1,20 @@
-import { useMutation } from "react-query";
-import  { createNewUser } from "../api/axios";
-// import { SignupProps } from "../types";
+import axios, { axiosPrivate } from "../axios/axios";
 
-// :SignupProps
+import { LoginProps, SignupProps } from "../types";
 
-// export const postSignUp = useMutation((userData:SignupProps)=> {
-//     return createNewUser(userData)
-// });
-// export const postSignUp = useMutation(createNewUser);
-
-export function postSignUp() {
-    const { data, mutate, isError, error } = useMutation(createNewUser);
-   
-    return {data, mutate, isError, error}
+interface Logout {
+  refresh: string;
 }
 
+export const createNewUser = (userData: SignupProps) => {
+  return axios.post("/register", userData).then((res) => res.data);
+};
 
-// ex.port function() { postSignUp }
+export const LoginUser = (userData: LoginProps) => {
+  return axios.post("/login", userData).then((res) => res.data);
+};
+
+export const LogoutUser = (refresh: Logout) => {
+  return axiosPrivate.post("/logout", refresh).then((res) => res.data);
+};
+

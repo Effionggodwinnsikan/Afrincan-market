@@ -63,7 +63,7 @@ const SearchBar = () => {
   }
 
   function handleClear() {
-    setSearch("");
+    setSearch(""); 
     setOpenClearIcon(false);
   }
 

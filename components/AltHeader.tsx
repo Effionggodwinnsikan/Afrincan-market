@@ -5,7 +5,6 @@ import { Login, Register } from "./modals";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-
 import { useRouter } from "next/router";
 import SearchBar from "./SearchBar";
 
@@ -14,13 +13,16 @@ const AltHeader = () => {
   const [openSignUp, setOpenSignUp] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [tooltip, setTooltip] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
 
   const handleTooltip = (e: any) => {
     e.preventDefault();
     setTooltip(!tooltip);
   };
-  const closeLogin = () => setOpenLogin(!openLogin);
-  const closeSignUp = () => setOpenSignUp(!openSignUp);
+   const handleLogin = () => setOpenLogin(!openLogin);
+   const handleSignUp = () => setOpenSignUp(!openSignUp);
+  const handleCart = () => setOpenCart(!openCart);
+  
 
   return (
     <>
@@ -31,7 +33,7 @@ const AltHeader = () => {
           </Link>
 
           {/* Searh bar */}
-          {router.pathname !== "/" && <SearchBar/>}
+          {router.pathname !== "/" && <SearchBar />}
 
           {/* MOBILE MENU */}
           <div className="pointer-events-[initial] flex items-center lg:hidden relative">
@@ -51,19 +53,13 @@ const AltHeader = () => {
                     <div className="flex flex-col ">
                       <button
                         className="text-maintxt font-normal bg-[transparent] outline-0 border-0 text-left text-sm px-4 py-2"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setOpenLogin(!openLogin);
-                        }}
+                        onClick={handleLogin}
                       >
                         Login
                       </button>
                       <button
                         className="text-maintxt font-normal bg-[transparent] outline-0 border-0 text-left text-sm  px-4 py-2"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setOpenSignUp(!openSignUp);
-                        }}
+                        onClick={handleSignUp}
                       >
                         Sign up
                       </button>
@@ -85,27 +81,17 @@ const AltHeader = () => {
 
           {/* BUTTONS */}
           <div className="hidden lg:flex gap-4 items-center">
-            <Button
-              variant="text"
-              onClick={() => {
-                setOpenLogin(!openLogin);
-              }}
-            >
+            <Button variant="text" onClick={handleLogin}>
               Log in
             </Button>
-            <Button
-              variant="contained"
-              onClick={() => {
-                setOpenSignUp(!openSignUp);
-              }}
-            >
+            <Button variant="contained" onClick={handleSignUp}>
               Sign up
             </Button>
           </div>
         </div>
       </header>
-      <Login open={openLogin} onClose={closeLogin} />
-      <Register open={openSignUp} onClose={closeSignUp} />
+      <Login open={openLogin} onClose={handleLogin} />
+      <Register open={openSignUp} onClose={handleSignUp} />
     </>
   );
 };
