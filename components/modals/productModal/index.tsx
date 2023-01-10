@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "@mui/material";
 
 import ClearIcon from "@mui/icons-material/Clear";
@@ -8,6 +8,7 @@ import { ProductProps } from "../../../types";
 import { styled } from "@mui/material/styles";
 import ModalContainer from "../../ModalContainer";
 import { Store } from "../../../context/store";
+import { FormatCur } from "../../../hooks/formatCurrency";
 
 const CalcButton = styled(Button)({
   backgroundColor: "#fff !important",
@@ -30,18 +31,37 @@ const CalcButton = styled(Button)({
 
 interface ProductDetailProps {
   open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  inCart: boolean;
+  setInCart: React.Dispatch<React.SetStateAction<boolean>>; //changes product state if it exist in cart
   onClose?: () => void;
-  // onClick?: () => void;
   product: ProductProps;
 }
 
 export const ProductDetail: React.FC<ProductDetailProps> = ({
   open,
   onClose,
-  // onClick,
+setOpen,
   product,
+  inCart, setInCart
 }) => {
   const [quantity, setQuantity] = useState<number>(1);
+   
+  
+  useEffect(() => {
+
+    // Update product quantity if exist it exist in  LocalStorage
+
+    function updateExitsItem() {
+      const existItem = cart.find((x) => x.name === product.name);
+      if (existItem) { setQuantity(existItem.quantity); setInCart(true); }
+    }
+
+    updateExitsItem();
+   
+  }, []);
+  
+
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -73,8 +93,11 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
       },
     });
 
+    setInCart(true);
+  setOpen(false)
+
     console.log(cart);
-    // const product =
+  
   }
 
   return (
@@ -105,7 +128,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
                 {product.name}
               </h4>
               <p className="text-sm text-[#f93a25] md:text-base">
-                {product.price}
+                {FormatCur(Number(product.price))}
                 <span className=" text-[#202125a3] line-through pl-3">2.5</span>
               </p>
               <p className="text-sm">{product.desc}</p>
@@ -131,7 +154,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
                 onClick={addToCart}
               >
                 <div className="flex justify-between items-center w-full">
-                  <p>Add to order</p>{" "}
+                  <p>{inCart ? "Update order" : "Add to order"}</p>{" "}
                   <span className="font-normal">
                     {quantity * Number(product.price)}
                   </span>

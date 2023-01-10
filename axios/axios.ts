@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 // const baseURL = `${process.env.BASE_URL}`;
-const baseURL = "http://34.224.99.151:8000/api/v1";
+const baseURL = process.env.BASE_URL || "http://34.224.99.151:8000/api/v1";
 const user = typeof window !== "undefined" && localStorage.getItem("userInfo")
   ? //    @ts-ignore
   JSON.parse(localStorage.getItem("userInfo")) || ""

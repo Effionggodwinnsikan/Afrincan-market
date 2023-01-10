@@ -223,7 +223,7 @@ const Header = () => {
       </header>
       <Login open={openLogin} onClose={handleLogin} setOpen={setOpenLogin} />
       <Register open={openSignUp} onClose={handleSignUp} />
-      <CartModal open={openCart} onClose={handleCart} />
+      <CartModal open={openCart} onClose={handleCart} setOpen={ setOpenCart} />
     </>
   );
 };

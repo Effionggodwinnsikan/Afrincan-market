@@ -1,19 +1,22 @@
 import React, { useContext, useState } from 'react'
 import { CartItemProps } from '../../types'
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { styled } from "@mui/material/styles";
 import { Store } from '../../context/store';
+import { FormatCur } from '../../hooks/formatCurrency';
 
 const CalcButton = styled(Button)({
   backgroundColor: "#fff !important",
   padding: "0",
   color: "#F6B01E !important",
   borderRadius: "999px",
-  width: "1.5rem!important",
-  minWidth: "1.5rem!important",
-  height: "1.5rem",
+  width: "1.25rem!important",
+  minWidth: "1.25rem!important",
+  height: "1.25rem",
   cursor: "pointer",
 
   "&:disabled": {
@@ -30,41 +33,71 @@ export const CartItem = (item: CartItemProps) => {
   const {state, dispatch} = useContext(Store)
     const [openAddQty, setOpenAddQty] = useState(false)
   const [quantity, setQuantity] = useState<number>(item.quantity)
+   const existItem = state.cart.find((x) => x.name === item.name);
 
 
      function increaseQty() {
        setQuantity(quantity + 1)
-        //  const existItem = state.cart.find((x) => x.name === item.name);
-        //  const newQuantity = existItem
-        //    ? (existItem.quantity = quantity)
-        //    : quantity;
-        //  const newProduct = {
-        //    // id: product.id,
-        //    name: item.name,
-        //    img: item.img,
-        //    price: item.price,
-        //    quantity: newQuantity,
-        //  };
+        
+         const newQuantity = existItem
+           ? (existItem.quantity + 1)
+           : quantity;
+         const newProduct = {
+           // id: product.id,
+           name: item.name,
+           img: item.img,
+           price: item.price,
+           quantity: newQuantity,
+         };
        
-        //  dispatch({
-        //    type: "ADD_TO_CART",
-        //    payload: {
-        //      ...newProduct,
-        //    },
-        //  });
+         dispatch({
+           type: "ADD_TO_CART",
+           payload: {
+             ...newProduct,
+           },
+         });
      }
 
      // reduce quantity
      function reduceQty() {
-       if (item.quantity === 1) return;
+       if (quantity === 1) {
+         dispatch({
+           type: "REMOVE_FROM_CART",
+           payload: item,
+         });
+       }
+       else {
+         
+         setQuantity(quantity - 1);
+          const newQuantity = existItem ? existItem.quantity - 1 : quantity;
+          const newProduct = {
+            // id: product.id,
+            name: item.name,
+            img: item.img,
+            price: item.price,
+            quantity: newQuantity,
+          };
+
+          dispatch({
+            type: "ADD_TO_CART",
+            payload: {
+              ...newProduct,
+            },
+          });
+       }
        
-       setQuantity(quantity - 1);
-        
-       
-     }
+         
+  }
+  
+  function removeFromCart() {
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      payload: item ,
+    });
+  }
   return (
-    <div className="flex justify-between">
-      <div className="flex gap-3" onClick={() => setOpenAddQty(true)}>
+    <div className="flex gap-3 justify-between">
+      <div className="flex gap-3">
         {!openAddQty && (
           <Button
             variant="outlined"
@@ -82,27 +115,33 @@ export const CartItem = (item: CartItemProps) => {
           </Button>
         )}
         {openAddQty && (
-          <div className="flex gap-4 items-center bg-[#FDEFD2] p-3 rounded-lg">
-            <CalcButton
-              variant="contained"
-              disabled={quantity === 1}
-              onClick={reduceQty}
-            >
+          <div className="flex gap-4 items-center bg-[#FDEFD2] p-[0.5rem] rounded-lg">
+            <CalcButton variant="contained" onClick={reduceQty}>
               <RemoveIcon />
             </CalcButton>
-            <p className="text-xl font-normal text-primary">{quantity}</p>
+            <p className="text-base font-medium text-primary">{quantity}</p>
             <CalcButton variant="contained" onClick={increaseQty}>
               <AddIcon />
             </CalcButton>
+            <IconButton
+              aria-label="delete"
+              sx={{
+                color: "#F6B01E",
+              }}
+              onClick={removeFromCart}
+            >
+              <DeleteIcon />
+            </IconButton>
           </div>
         )}
         <div
           className="flex flex-col"
+          onClick={() => setOpenAddQty(!openAddQty)}
           //   onClick={() => setOpenAddQty(!openAddQty)}
         >
           <p className="font-semibold text-base">{item.name}</p>
           <span className="font-normal text-base text-primary">
-            {item.price * item.quantity}
+            {FormatCur(item.price * item.quantity)}
           </span>
         </div>
       </div>
