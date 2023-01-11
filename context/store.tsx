@@ -106,12 +106,12 @@ type ChildrenType = {children?: ReactElement | ReactElement[]}
 
 export function StoreProvider({ children }: ChildrenType) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  // @ts-ignore
+  
   const totalItems = state.cart.reduce((prev, item) => {
     return prev + item.quantity;
   }, 0);
 
-  // @ts-ignore
+
   const totalPrice = state.cart.reduce((prev, item) => {
     return prev + item.price * item.quantity;
   }, 0);
@@ -120,3 +120,5 @@ export function StoreProvider({ children }: ChildrenType) {
 
   return <Store.Provider value={value}>{children}</Store.Provider>;
 }
+
+  // @ts-ignore
