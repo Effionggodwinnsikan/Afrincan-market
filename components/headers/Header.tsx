@@ -1,19 +1,20 @@
 import Link from "next/link";
 import React, { useState, useContext } from "react";
 import { Button } from "@mui/material";
-import { Login, Register } from "./modals";
+import { Login, Register } from "../modals";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import SearchBar from "./SearchBar";
+import SearchBar from "../SearchBar";
 import { useRouter } from "next/router";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import CartModal from "./modals/cart";
-import { Store } from "../context/store";
+import CartModal from "../modals/cart";
+import { Store } from "../../context/store";
 import { useSnackbar } from "notistack";
 import { useMutation } from "react-query";
-import { LogoutUser } from "../hooks/mutations";
+import { LogoutUser } from "../../hooks/mutations";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const Header = () => {
   const router = useRouter();
@@ -94,23 +95,55 @@ const Header = () => {
             </button>
 
             {tooltip && (
-              <div className="flex flex-col gap absolute popover -bottom-[10.75rem] right-0 min-w-[13.75rem]">
+              <div className="flex flex-col gap absolute popover -bottom-[13.75rem] right-0 min-w-[13.75rem]">
                 <div className="flex flex-col relative p-[0.5rem] gap-1 z-20 bg-white  ">
                   <div className="absolute bg-white popover_overlay  z-[-21]"></div>
+
                   <div className="flex flex-col">
+                    {user && (
+                      <Link href="profile">
+                        <div className="flex gap-3 items-center p-[0.5rem] hover:bg-[#F5F6F6] transition-[background] rounded-md">
+                          <div className="flex items-center  bg-[#20212514] rounded-[100%]  border outline-0">
+                            <AccountCircleIcon className="text-[#20212533] border-white border-1 text-4xl rounded-full" />
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="text-sm">Profile</span>
+                            <p className="text-base font-semibold capitalize">
+                              {user.username}
+                            </p>
+                          </div>
+                          <ChevronRightIcon/>
+                        </div>
+                      </Link>
+                    )}
                     <div className="flex flex-col ">
-                      <button
-                        className="text-maintxt font-normal bg-[transparent] outline-0 border-0 text-left text-sm px-4 py-2"
-                        onClick={handleLogin}
-                      >
-                        Login
-                      </button>
-                      <button
-                        className="text-maintxt font-normal bg-[transparent] outline-0 border-0 text-left text-sm  px-4 py-2"
-                        onClick={handleSignUp}
-                      >
-                        Sign up
-                      </button>
+                      {!user && (
+                        <>
+                          <button
+                            className="text-maintxt font-normal bg-[transparent] outline-0 border-0 text-left text-sm px-4 py-2"
+                            onClick={handleLogin}
+                          >
+                            Login
+                          </button>
+                          <button
+                            className="text-maintxt font-normal bg-[transparent] outline-0 border-0 text-left text-sm  px-4 py-2"
+                            onClick={handleSignUp}
+                          >
+                            Sign up
+                          </button>
+                        </>
+                      )}
+                      {cart.length >= 1 && (
+                        <button
+                          className="text-maintxt font-semibold bg-[transparent] outline-0 border-0 text-left text-sm  px-4 py-2 flex items-center gap-2"
+                          onClick={handleCart}
+                        >
+                          Cart:
+                          <span className="font-semibold text-primary text-sm">
+                            {totalItems}
+                          </span>
+                        </button>
+                      )}
                     </div>
                     <hr className="border-b-1 m-0" />
                     <div className="flex flex-col ">
@@ -129,9 +162,9 @@ const Header = () => {
 
           {/* DESkTOP MENU */}
 
-          {user && (
+          {user ? (
             <div className="hidden lg:flex gap-4 items-center">
-              {router.pathname != "/" && (
+              {router.pathname != "/" && cart.length >= 1 && (
                 <Badge badgeContent={totalItems} color="primary">
                   <ShoppingCartIcon
                     sx={{ cursor: "pointer" }}
@@ -198,12 +231,9 @@ const Header = () => {
                 )}
               </div>
             </div>
-          )}
-
-          {/* BUTTONS */}
-          {!user && (
+          ) : (
             <div className="hidden lg:flex gap-4 items-center">
-              {router.pathname != "/" && (
+              {router.pathname != "/" && cart.length >= 1 && (
                 <Badge badgeContent={totalItems} color="primary">
                   <ShoppingCartIcon
                     sx={{ cursor: "pointer" }}
@@ -223,7 +253,7 @@ const Header = () => {
       </header>
       <Login open={openLogin} onClose={handleLogin} setOpen={setOpenLogin} />
       <Register open={openSignUp} onClose={handleSignUp} />
-      <CartModal open={openCart} onClose={handleCart} setOpen={ setOpenCart} />
+      <CartModal open={openCart} onClose={handleCart} setOpen={setOpenCart} />
     </>
   );
 };

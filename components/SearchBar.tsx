@@ -17,6 +17,7 @@ const SearchBar = () => {
   const [search, setSearch] = useState("");
   const [openPlaces, setOpenPlaces] = useState(false);
   const [openClearIcon, setOpenClearIcon] = useState(false);
+  const path = `/${"restaurants/restaurant" || "store/store"}`;
 
   const router = useRouter();
   const places = allPlaces.filter(
@@ -93,9 +94,9 @@ const SearchBar = () => {
       if (typeof window !== "undefined") {
         const preSearch = localStorage.getItem("recent-search-history") || "";
 
-        //  if (preSearch.length >= 1) {
+         if (preSearch.length >= 1) {
         setSearchHistory(JSON.parse(preSearch));
-        //  }
+         }
       }
       return;
     }
@@ -116,17 +117,34 @@ const SearchBar = () => {
             >
               <OutlinedInput
                 id="search"
-                startAdornment={<SearchOutlinedIcon fontSize="medium" />}
+                startAdornment={
+                  <SearchOutlinedIcon
+                    fontSize="medium"
+                    sx={{
+                      color: `${router.pathname === path ? "#fff" : ""}`,
+                    }}
+                  />
+                }
                 endAdornment={
                   openClearIcon && (
-                    <CancelIcon onClick={handleClear} fontSize="small" />
+                    <CancelIcon onClick={handleClear} fontSize="small" sx={{
+                      cursor:"pointer"
+                    }} />
                   )
                 }
                 placeholder="Search...."
                 sx={{
                   borderRadius: "0.375rem",
-                  backgroundColor: "#DBDBDC",
+                  backgroundColor: ` ${
+                    router.pathname === path
+                      ? "rgba(242, 242, 242, 0.24)"
+                      : "#DBDBDC"
+                  } `,
+                  color: `${router.pathname === path ? "#fff" : ""}`,
                   height: "3rem",
+                  "& ::placeholder": {
+                    color: `${router.pathname === path ? "#fff" : ""}`,
+                  },
                 }}
                 autoComplete="off"
                 value={search}
@@ -135,7 +153,9 @@ const SearchBar = () => {
               />
             </FormControl>
           </div>
-          <Button type="submit">search</Button>
+          <div className="hidden md:flex">
+            <Button type="submit">search</Button>
+          </div>
 
           <div>
             {openPrev && (

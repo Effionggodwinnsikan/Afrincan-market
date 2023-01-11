@@ -20,12 +20,12 @@ const CartModal = ({ open, onClose, setOpen }: CardModalProps) => {
 
     return (
       <ModalContainer open={open} onClose={onClose}>
-        <div className=" border-0 rounded-xl p-4 max-w-[31.25rem] z-10 w-full bg-white   modal__content  md:rounded-2xl  overflow-auto relative ">
+        <div className=" border-0 rounded-xl p-4 max-w-[31.25rem] z-10 w-full bg-white   modal__content  md:rounded-2xl  overflow-y-auto relative ">
           <div className="flex flex-col gap-6 relative">
             <div className="relative h-full">
-              <div className="flex justify-end items-center w-full z-10 bg-white sticky top-0 right-0">
+              <div className="flex justify-end items-center w-full z-10 bg-white sticky top-0 right-0 ">
                 <button
-                  className="flex items-center justify-center bg-[#E4E4E4] p-1 rounded-[50%] font-bold text-[32px] border-none outline-none cursor-pointer sticky left-0 top-0"
+                  className="flex items-center justify-center bg-[#E4E4E4] p-1 rounded-[50%] font-bold text-[32px] border-none outline-none cursor-pointer"
                   onClick={onClose}
                 >
                   <ClearIcon fontSize="inherit" />
@@ -39,7 +39,7 @@ const CartModal = ({ open, onClose, setOpen }: CardModalProps) => {
               })}
             </div>
 
-            <div className="w-full sticky left-0 bottom-0">
+            <div className="w-full sticky left-0 bottom-0 bg-white  ">
               <Button
                 sx={{
                   justifyContent: "space-between",
