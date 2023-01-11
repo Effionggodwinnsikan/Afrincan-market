@@ -1,6 +1,6 @@
 import React from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import { Button } from "@mui/material";
+
 
 interface SearchProps{
   placeholder: string;

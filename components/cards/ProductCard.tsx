@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { ProductProps } from "../../types";
 import { ProductDetail } from "../modals/productModal";
+import { FormatCur } from "../../hooks/formatCurrency";
 
 
 const ProductCard = (product: ProductProps) => {
-  const [openProduct, setOpenProduct ] = useState(false)
+  const [openProduct, setOpenProduct] = useState(false)
+  const [inCart, setInCart] = useState(false);
 
    const closeProduct = () => setOpenProduct(!openProduct);
 
@@ -14,14 +16,20 @@ const ProductCard = (product: ProductProps) => {
       <div
         // href="/"
         onClick={closeProduct}
-        className=" px-4 md:px-10  lg:px-5  rounded-lg border border-[transparent]  hover:border-[#e4e4e4] border-solid  transition-[border] hover:shadow-sm "
+        className="px-4 md:px-10  lg:px-5  rounded-lg  border border-[transparent] hover:border-[#e4e4e4] border-solid  transition-[border] hover:shadow-sm relative cursor-pointer"
       >
+        {inCart && (
+          <div className="absolute left-0 top-[10%]  h-[80%] w-[4px] bg-primary"></div>
+        )}
+
         <div className="flex justify-between gap-5 border border-solid border-[transparent]  border-b-[#e4e4e4] py-6 hover:border-transparent">
           <div className="flex flex-col gap-6 ">
             <h4 className="text-sm lg:text-lg font-semibold">{product.name}</h4>
-            <p className="text-xs lg:text-sm text-[#979797] font-medium">{product.desc}</p>
+            <p className="text-xs lg:text-sm text-[#979797] font-medium">
+              {product.desc}
+            </p>
             <span className="text-sm text-primary bg-primary/10 w-fit rounded  p-1 lg:text-base font-semibold">
-              {product.price}
+              {FormatCur(Number(product.price))}
             </span>
           </div>
 
@@ -38,6 +46,9 @@ const ProductCard = (product: ProductProps) => {
         open={openProduct}
         onClose={closeProduct}
         product={product}
+        setOpen={setOpenProduct}
+        inCart={inCart}
+        setInCart={setInCart}
       />
     </>
   );

@@ -72,7 +72,7 @@ module.exports = {
           "0%": {
             width: 0,
             height: 0,
-            overflow: "hidden",
+            // overflow: "hidden",
             opacity: 0,
             left: "100vh",
             // borderRadius: "50%",
@@ -80,7 +80,7 @@ module.exports = {
           "100%": {
             width: 100,
             height: 100,
-            overflow: "hidden",
+            // overflow: "hidden",
             opacity: 1,
            
           },

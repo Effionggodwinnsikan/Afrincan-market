@@ -40,6 +40,19 @@ export interface ProductProps {
   menu?: string;
 }
 
+
+export interface SignupProps {
+  email: string;
+  username: string;
+  password: string;
+}
+
+export interface LoginProps {
+  email: string;
+  password: string;
+}
+
+
 export interface AllPlaceProps {
   name: string;
   img: string;
@@ -50,4 +63,12 @@ export interface AllPlaceProps {
   open: boolean;
   category: string[];
   type: string
+}
+
+export interface CartItemProps {
+  id?: string;
+  name: string;
+  img: string;
+  price: number;
+  quantity: number;
 }

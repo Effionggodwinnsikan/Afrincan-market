@@ -1,27 +1,99 @@
-import { Fade, Modal } from "@mui/material";
-import Backdrop from "@mui/material/Backdrop";
-// import Link from "next/link";
-import React, { useState } from "react";
-import { TextInput } from "../../generalComponents/input";
+import React, { useContext, useState } from "react";
+import { useRouter } from "next/router";
 import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
-
 import ModalContainer from "../../ModalContainer";
+import InputAdornment from "@mui/material/InputAdornment";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import { useSnackbar } from "notistack";
+import { useMutation } from "react-query";
+import { useForm, Controller } from "react-hook-form";
+import { LoginUser } from "../../../hooks/mutations";
+import { Store } from "../../../context/store";
 
 interface LoginProps {
   open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   onClose?: () => void;
-  onClick?: () => void;
 }
 
-export const Login: React.FC<LoginProps> = ({ open, onClose, onClick }) => {
+interface FormProps {
+  email: string;
+  password: string;
+}
+
+// const resolver: Resolver<FormProps> = async (values) => {
+//   return {
+//     values: values.email ? values : {},
+//     errors: !values.email
+//       ? {
+//           firstName: {
+//             type: "required",
+//             message: "This is required.",
+//           },
+//         }
+//       : {},
+//   };
+// };
+
+// const defaultValues: FormProps = {
+//   email: "",
+//   password: ""
+// }
+
+export const Login: React.FC<LoginProps> = ({ open, onClose, setOpen }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const router = useRouter();
+  const { dispatch } = useContext(Store);
 
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<FormProps>();
+  const { mutate, isError, error } = useMutation(LoginUser, {
+    onSuccess: (data) => {
+      console.log(data);
+      dispatch({ type: "USER_LOGIN", payload: data });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      enqueueSnackbar("Logged in successfully ", {
+        variant: "success",
+      });
 
+      if (router.pathname === "/") router.push("/restaurants");
+
+      setOpen(!open);
+    },
+  });
+
+  function submitForm({ email, password }: FormProps) {
+    closeSnackbar();
+    //  @ts-ignore
+    if (isError && error.response.status === 401) {
+      console.log(error);
+      //  @ts-ignore
+      enqueueSnackbar(`${error.response.data.detail}`, { variant: "error" });
+      return;
+    } else {
+      mutate({
+        email,
+        password,
+      });
+    }
+    console.log(error);
+  }
+
+  // useEffect(() => {
+  //  reset()
+  // }, [reset])
 
   return (
     <>
-    
       <ModalContainer open={open} onClose={onClose}>
         <div className="flex flex-col border-0  rounded-xl p-4 relative gap-6  max-w-[31.25rem] w-full bg-white overflow-hidden shadow-modalContent md:rounded-2xl z-[102]">
           <div className="flex flex-col gap-4">
@@ -38,38 +110,106 @@ export const Login: React.FC<LoginProps> = ({ open, onClose, onClick }) => {
             </h2>
           </div>
           <div className="flex flex-col gap-4">
-            <form action="" className="flex flex-col gap-4">
-              <TextInput label="Email " type="email" />
+            <form
+              onSubmit={handleSubmit(submitForm)}
+              className="flex flex-col gap-4"
+            >
+              <Controller
+                name="email"
+                defaultValue=""
+                control={control}
+                rules={{
+                  required: true,
+                  pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                }}
+                render={({ field }) => (
+                  <FormControl
+                    sx={{ width: "100%", borderWidth: "2px" }}
+                    variant="outlined"
+                    error={Boolean(errors.email)}
+                  >
+                    <InputLabel htmlFor="Email">Email</InputLabel>
+                    <OutlinedInput
+                      id="Email"
+                      type="email"
+                      inputProps={{ type: "type" }}
+                      label="Email"
+                      {...field}
+                    />
+                  </FormControl>
+                )}
+              />
               <div className="flex flex-col gap-2 items-left">
-                <TextInput
-                  label="Password "
-                  type={showPassword ? "text" : "password"}
-                />
-                <button
-                  className="border-none outline-none bg-none font-medium text-xs w-[max-content]"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setShowPassword(!showPassword);
+                <Controller
+                  name="password"
+                  control={control}
+                  defaultValue=""
+                  rules={{
+                    required: true,
+                    minLength: 6,
                   }}
-                >
-                  {showPassword ? "Hide password" : "Show password"}
-                </button>
+                  render={({ field }) => (
+                    <FormControl
+                      sx={{ width: "100%", borderWidth: "2px" }}
+                      variant="outlined"
+                      error={Boolean(errors.password)}
+                    >
+                      <InputLabel htmlFor="password">Password</InputLabel>
+                      <OutlinedInput
+                        id="password"
+                        type={showPassword ? "text" : "password"}
+                        endAdornment={
+                          <InputAdornment
+                            position="end"
+                            onClick={() => setShowPassword(!showPassword)}
+                            sx={{
+                              cursor: "pointer",
+                            }}
+                          >
+                            {showPassword ? (
+                              <VisibilityOffIcon />
+                            ) : (
+                              <VisibilityIcon />
+                            )}
+                          </InputAdornment>
+                        }
+                        label="Password"
+                        {...field}
+                        sx={{
+                          backgroundColor: "#fff",
+                        }}
+                      />
+                      <span>
+                        {errors.password ? (
+                          errors.password.type === "minLength" ? (
+                            <span style={{ color: "red", fontSize: 12 }}>
+                              password is less than 6
+                            </span>
+                          ) : (
+                            <span style={{ color: "red", fontSize: 12 }}>
+                              password is required
+                            </span>
+                          )
+                        ) : (
+                          ""
+                        )}
+                      </span>
+                    </FormControl>
+                  )}
+                />
               </div>
-              <Button sx={{ width: "100%" }} onClick={onClick}>
-                Next
+              <Button type="submit" sx={{ width: "100%" }}>
+                Login
               </Button>
             </form>
           </div>
         </div>
       </ModalContainer>
-
-   
     </>
   );
 };
 
-
-  /* <p className=" text-xs">
+/* <p className=" text-xs">
               Please visit
               <Link href="/">
                 <span className="text-primaryBtn font-semibold px-[2.5px]">

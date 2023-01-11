@@ -9,11 +9,14 @@ const ModalContainer = ({ open, onClose, children }: ModalProps) => {
   return (
     <>
       {open && (
-        <div className="flex fixed w-full h-full overflow-auto z-[100] top-0 left-0  items-center justify-center animate-modal">
-          {children}
+        <div className="fixed w-full  h-screen overflow-hidden z-[100] top-0 left-0   animate-modal">
+          <div className="w-full h-full relative flex items-center justify-center">
+            {children}
+          </div>
+
           {/* Backdrop */}
           <div
-            className="absolute w-full h-full bg-[#1a1a1a66] inset-0"
+            className="fixed w-full h-screen bg-[#1a1a1a66] inset-0 overflow-hidden"
             onClick={onClose}
           ></div>
         </div>

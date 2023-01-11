@@ -5,8 +5,13 @@ import "../styles/nprogress.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import Head from "next/head";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { SnackbarProvider } from "notistack";
+import { StoreProvider } from "../context/store";
 
 export default function App({ Component, pageProps }) {
+  const queryClient = new QueryClient();
+
   NProgress.configure({
     showSpinner: false,
   });
@@ -19,55 +24,63 @@ export default function App({ Component, pageProps }) {
   Router.events.on("routeChangeError", () => {
     NProgress.done();
   });
+
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Head>
-
-      <title>African Market</title>
-      <meta
-        name="description"
-        content="African Market WebApp"
-      />
-        <link
-          rel="preload"
-          href="/fonts/OmnesBold.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/OmnesBlack.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-        rel="preload"
-        href="/fonts/OmnesExtraLight.ttf"
-        as="font"
-        crossOrigin=""
-        />
-        <link
-        rel="preload"
-        href="/fonts/OmnesLight.ttf"
-        as="font"
-        crossOrigin=""
-        />
-        <link
-        rel="preload"
-        href="/fonts/OmnesRegular.ttf"
-        as="font"
-        crossOrigin=""
-        />
-        <link
-        rel="preload"
-        href="/fonts/OmnesSemiboldRegular.ttf"
-        as="font"
-        crossOrigin=""
-      />
-      </Head>
-      {getLayout(<Component {...pageProps} />)}
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+        >
+          <StoreProvider>
+            <Head>
+              <title>African Market</title>
+              <meta name="description" content="African Market WebApp" />
+              <link
+                rel="preload"
+                href="/fonts/OmnesBold.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesBlack.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesExtraLight.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesLight.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesRegular.ttf"
+                as="font"
+                crossOrigin=""
+              />
+              <link
+                rel="preload"
+                href="/fonts/OmnesSemiboldRegular.ttf"
+                as="font"
+                crossOrigin=""
+              />
+            </Head>
+            {getLayout(<Component {...pageProps} />)}
+          </StoreProvider>
+        </SnackbarProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
